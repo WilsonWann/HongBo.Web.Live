@@ -24,3 +24,6 @@ yarn-error.log*
 
 package-lock.json
 .eslintcache
+
+src/assets/images/Android/*
+public/assets/images/Android/*

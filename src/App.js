@@ -1,7 +1,7 @@
-import logo from './logo.svg';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import './App.css';
+import Recommendation from './app/Recommendation';
 
 function App() {
   return (
@@ -10,10 +10,10 @@ function App() {
         <div className="App">
           <p>react router example</p>
           <ul>
-            <li><Link to="counter">Counter</Link></li>
+            <li><Link to="recommendation">Recommendation</Link></li>
           </ul>
           <Switch>
-            {/* <Route path='/counter' component={() => <Counter count={count} setCount={setCount} />} /> */}
+            <Route path='/recommendation' component={Recommendation} />
           </Switch>
         </div>
       </Router>
