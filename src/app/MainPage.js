@@ -3,7 +3,7 @@ import Recommendation from './Recommendation';
 import PopularGames from './PopularGames';
 import AllLiveChannels from './AllLiveChannels';
 import Logo from './Logo';
-import { StyledFloatingImage } from './components/StyledFloatingImage';
+import { FloatingImage } from './components/StyledFloatingImage';
 import styled from 'styled-components';
 
 const MainPage = (props) => {
@@ -11,8 +11,8 @@ const MainPage = (props) => {
 
         <StyledMainPage className="MainPage">
             <Logo className="MainPage_Logo" />
-            <StyledFloatingImage className="MainPage_FloatingImageA" type="A" />
-            <StyledFloatingImage className="MainPage_FloatingImageB" type="B" />
+            <FloatingImage className="MainPage_FloatingImage" type="A" />
+            <FloatingImage className="MainPage_FloatingImage" type="B" />
             <StyledRecommendation className="MainPage_Recommendation">
                 <Recommendation />
             </StyledRecommendation>
@@ -40,6 +40,9 @@ const StyledMainPage = styled.div`
         top 0 center,
         top 970px center,
         top 1620px center;
+    .MainPage_FloatingImage{
+        top: 0;
+    }
 `
 
 const StyledRecommendation = styled.div`
@@ -53,6 +56,7 @@ const StyledPopularGames = styled.div`
 const StyledAllLiveChannels = styled.div`
     position:relative;
     margin-top: 156px;
+    padding-bottom: 60px;
 `
 
 export default MainPage

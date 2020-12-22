@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledFloatingImage = styled.div`
+export const FloatingImage = styled.div`
     position:absolute;
     background-image: 
         url(${props => process.env.PUBLIC_URL + '/assets/images/Android/BG_float_1' + props.type + '.png'}),
