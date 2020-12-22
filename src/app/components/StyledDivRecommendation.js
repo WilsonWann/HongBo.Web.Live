@@ -40,6 +40,18 @@ const StyledDiv = styled.div`
         width: 182px;
         height: 92px;
         background-color: green;
+        &:before{
+            content:url(${process.env.PUBLIC_URL + '/assets/images/Android/thumbnail_182x92_h.png'});
+            position: absolute;
+            width: 204px;
+            height:104px;
+            top: -6px;
+            left: -16px;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            display: none;
+        }
         &.A{
             background-image: url(${process.env.PUBLIC_URL + '/assets/images/Android/1_thumbnail-1.jpg'});
         }
@@ -54,6 +66,11 @@ const StyledDiv = styled.div`
         }
         &.E{
             background-image: url(${process.env.PUBLIC_URL + '/assets/images/Android/1_thumbnail-5.jpg'});
+        }
+        &.selected{
+            &:before{
+                display:block;
+            }
         }
     }
     &:before{
