@@ -13,7 +13,8 @@
 
 .App nav+div {
   position: relative;
-  top: 100px;
+  top: unset;
+  left: unset;
   background-color: grey;
 }
 

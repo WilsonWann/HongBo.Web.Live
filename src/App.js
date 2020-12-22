@@ -5,6 +5,7 @@ import Recommendation from './app/Recommendation';
 import PopularGames from './app/PopularGames';
 import AllLiveChannels from './app/AllLiveChannels';
 import MainPage from './app/MainPage';
+import Logo from './app/Logo';
 
 function App() {
   return (
@@ -16,12 +17,14 @@ function App() {
             <Link to="recommendation">Recommendation</Link>
             <Link to="populargames">PopularGames</Link>
             <Link to="alllivechannels">AllLiveChannels</Link>
+            <Link to="logo">Logo</Link>
           </nav>
           <Switch>
             <Route path="/mainpage" component={MainPage} />
             <Route path='/recommendation' component={Recommendation} />
             <Route path='/populargames' component={PopularGames} />
             <Route path='/alllivechannels' component={AllLiveChannels} />
+            <Route path='/logo' component={Logo} />
           </Switch>
         </div>
       </Router>

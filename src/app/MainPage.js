@@ -2,14 +2,17 @@ import React from 'react'
 import Recommendation from './Recommendation';
 import PopularGames from './PopularGames';
 import AllLiveChannels from './AllLiveChannels';
+import Logo from './Logo';
+import { StyledFloatingImage } from './components/StyledFloatingImage';
 import styled from 'styled-components';
 
 const MainPage = (props) => {
     return (
 
         <StyledMainPage className="MainPage">
-            <StyledFloatingImageA className="MainPage_FloatingImageA" />
-            <StyledFloatingImageB className="MainPage_FloatingImageB" />
+            <Logo className="MainPage_Logo" />
+            <StyledFloatingImage className="MainPage_FloatingImageA" type="A" />
+            <StyledFloatingImage className="MainPage_FloatingImageB" type="B" />
             <StyledRecommendation className="MainPage_Recommendation">
                 <Recommendation />
             </StyledRecommendation>
@@ -23,34 +26,6 @@ const MainPage = (props) => {
     )
 }
 
-const StyledFloatingImageA = styled.div`
-    position:absolute;
-    background-image: 
-        url(${process.env.PUBLIC_URL + '/assets/images/Android/BG_float_1A.png'}),
-        url(${process.env.PUBLIC_URL + '/assets/images/Android/BG_float_2A.png'}),
-        url(${process.env.PUBLIC_URL + '/assets/images/Android/BG_float_3A.png'});
-    width:100%;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-position: 
-        top 0 center,
-        top 970px center,
-        top 1620px center;
-`
-const StyledFloatingImageB = styled.div`
-    position:absolute;
-    background-image: 
-        url(${process.env.PUBLIC_URL + '/assets/images/Android/BG_float_1B.png'}),
-        url(${process.env.PUBLIC_URL + '/assets/images/Android/BG_float_2B.png'}),
-        url(${process.env.PUBLIC_URL + '/assets/images/Android/BG_float_3B.png'});
-    width:100%;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-position: 
-        top 0 center,
-        top 970px center,
-        top 1620px center;
-`
 const StyledMainPage = styled.div`
     position:relative;
     background-image: 
@@ -69,7 +44,7 @@ const StyledMainPage = styled.div`
 
 const StyledRecommendation = styled.div`
     position:relative;
-    margin-top: 168px;
+    margin-top: 98px;
 `
 const StyledPopularGames = styled.div`
     position:relative;

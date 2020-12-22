@@ -13,7 +13,7 @@ const StyledDiv = styled.div`
         position: relative;
         width: 395px;
         height: 84px;
-        top: -92px;
+        top: -90px;
         background-position: center center;
         background-repeat: no-repeat;
         background-size: contain;
