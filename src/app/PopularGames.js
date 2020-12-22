@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyledDivPopularGames } from './components/StyledDivPopularGames';
 
-function PopularGames() {
+function PopularGames(props) {
     return (
         <div>
             <StyledDivPopularGames />
