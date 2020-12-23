@@ -1,74 +1,35 @@
 import React from 'react'
 import styled from 'styled-components';
+import { StyledLiveList } from './StyledLiveList';
+import { StyledNavList } from './StyledNavList';
+import { StyledPaging } from './StyledPaging';
 
 export const StyledDivAllLiveChannels = () => {
+
+    const list = ['全部', '直播', '体育', '电竞', '电子', '真人', '棋牌', '高热门度'];
+    const gameList = [
+        { image: "1", flag: "1" },
+        { image: "2", flag: "2" },
+        { image: "3", flag: "3" },
+        { image: "4", flag: "4" },
+        { image: "5", flag: "2" },
+        { image: "6", flag: "5" },
+        { image: "7", flag: "4" },
+        { image: "8", flag: "2" },
+        { image: "9", flag: "5" }
+    ]
     return (
         <StyledDiv className="AllLiveChannels_bg" >
-            <StyledInnerDiv>
-                <StyledNavList>
-                    <StyledNav>全部</StyledNav>
-                    <StyledNav>直播</StyledNav>
-                    <StyledNav>体育</StyledNav>
-                    <StyledNav>电竞</StyledNav>
-                    <StyledNav>电子</StyledNav>
-                    <StyledNav>真人</StyledNav>
-                    <StyledNav>棋牌</StyledNav>
-                    <StyledNav>高热门度</StyledNav>
-                </StyledNavList>
-                <StyledLiveList></StyledLiveList>
+            <StyledWrapperDiv>
+                <StyledNavList list={list} />
+                <StyledLiveList gameList={gameList} ></StyledLiveList>
                 <StyledPaging></StyledPaging>
-            </StyledInnerDiv>
+            </StyledWrapperDiv>
         </StyledDiv>
     )
 }
 
-const StyledNav = styled.button`
-    position: relative;
-    width: 102px;
-    height : 32px;
-    font-size: 16px;
-    font-weight: 600;
-    color: #724c2f;
-    font-family: PingFang-SC;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 16px;
-    border: 1px solid #ffefe2;
-    cursor: pointer;
-    &:hover{
-        color: #eb4f2d;
-    }
-    &:active{
-        background-color: rgba(122, 57, 14, 0.26);
-        border: 1px solid #e6c9ab;
-        color: #442206;
-    }
-    &:focus{
-        outline: none;
-    }
-`
-
-const StyledNavList = styled.div`
-    position: relative;
-    width: 100%;
-    height : 32px;
-    background-color: transparent;
-    display: flex;
-    justify-content: space-evenly;
-`
-const StyledLiveList = styled.div`
-    position: relative;
-    width: 100%;
-    height : 800px;
-    background-color: lightcoral;
-`
-const StyledPaging = styled.div`
-    position: relative;
-    width: 100%;
-    height : 50px;
-    background-color: lightpink;
-`
-
-const StyledInnerDiv = styled.div`
+const StyledWrapperDiv = styled.div`
     position: relative;
     width: 100%;
     height : 100%;
