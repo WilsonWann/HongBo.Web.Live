@@ -3,11 +3,11 @@ import { StyledDivRecommendation } from './components/StyledDivRecommendation';
 
 
 const Recommendation = (props) => {
-    const [Index, setIndex] = useState();
+    const [index, setIndex] = useState();
     // console.log('process.env.PUBLIC_URL: ', process.env.PUBLIC_URL)
     return (
         <div>
-            <StyledDivRecommendation />
+            <StyledDivRecommendation index={index} setIndex={setIndex} />
         </div>
     );
 }
