@@ -12,7 +12,8 @@ export const StyledLiveBlock = (props) => {
     )
 }
 const StyledDiv = styled.div`
-    &:before{
+    &:before,
+    &:after{
         content: '';
         position: absolute;
         width: 51px;
@@ -26,17 +27,8 @@ const StyledDiv = styled.div`
         z-index:1;
     } 
     &:after{
-        content: '';
-        position: absolute;
-        width: 51px;
-        height: 54px;
-        top: 147px;
-        left: 291px;
-        background-position: center center;
-        background-repeat: no-repeat;
         background-size: initial;
         background-image: url(${props => process.env.PUBLIC_URL + '/assets/images/Android/tag_logo_' + props.flag + '.png'});
-        z-index:1;
     }
     position: relative;
     width: 350px;
