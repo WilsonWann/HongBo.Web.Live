@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyledDivRecommendation } from './components/StyledDivRecommendation';
+import { StyledDivRecommendation } from './components/Recommendation/StyledDivRecommendation';
 
 
 const Recommendation = (props) => {

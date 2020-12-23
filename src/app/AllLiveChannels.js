@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { StyledDivAllLiveChannels } from './components/StyledDivAllLiveChannels';
+import { StyledDivAllLiveChannels } from './components/AllLiveChannels/StyledDivAllLiveChannels';
 
 const AllLiveChannels = (props) => {
     const [Index, setIndex] = useState();

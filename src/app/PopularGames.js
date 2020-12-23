@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyledDivPopularGames } from './components/StyledDivPopularGames';
+import { StyledDivPopularGames } from './components/PopularGames/StyledDivPopularGames';
 
 function PopularGames(props) {
     return (
