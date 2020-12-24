@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const StyledInfoBlock = (props) => {
     return (
-        <StyledDiv >
+        <StyledDiv className="StyledInfoBlock">
             <StyledTitle>{props.title}</StyledTitle>
             <StyledSubTitle>
                 <StyledLiveMaster>{props.liveMaster}</StyledLiveMaster>

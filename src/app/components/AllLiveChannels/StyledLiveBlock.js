@@ -6,7 +6,7 @@ import { StyledInfoBlock } from './StyledInfoBlock';
 export const StyledLiveBlock = (props) => {
     return (
         <StyledDiv flag={props.flag}>
-            <StyledImageBlock image={props.image} />
+            <StyledImageBlock image={props.image} name="image-block-hover" />
             <StyledInfoBlock title={props.title} liveMaster={props.liveMaster} hot={props.hot} />
         </StyledDiv>
     )
@@ -40,7 +40,12 @@ const StyledDiv = styled.div`
     overflow: hidden;
     cursor: pointer;
     &:hover{
-     
-     
+        box-shadow: 0 0 0 3px #ff0000;
+        .image-block-hover{
+            &:before{
+                opacity: 1;
+            }
+            transform:scale(1.1);
+        }
     }
 `
