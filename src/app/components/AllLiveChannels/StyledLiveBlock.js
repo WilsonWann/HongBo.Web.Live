@@ -7,7 +7,7 @@ export const StyledLiveBlock = (props) => {
     return (
         <StyledDiv flag={props.flag}>
             <StyledImageBlock image={props.image} />
-            <StyledInfoBlock />
+            <StyledInfoBlock title={props.title} liveMaster={props.liveMaster} hot={props.hot} />
         </StyledDiv>
     )
 }

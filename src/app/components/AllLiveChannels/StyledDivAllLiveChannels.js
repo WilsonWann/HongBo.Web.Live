@@ -8,15 +8,15 @@ export const StyledDivAllLiveChannels = () => {
 
     const list = ['全部', '直播', '体育', '电竞', '电子', '真人', '棋牌', '高热门度'];
     const gameList = [
-        { image: "1", flag: "1" },
-        { image: "2", flag: "2" },
-        { image: "3", flag: "3" },
-        { image: "4", flag: "4" },
-        { image: "5", flag: "2" },
-        { image: "6", flag: "5" },
-        { image: "7", flag: "4" },
-        { image: "8", flag: "2" },
-        { image: "9", flag: "5" }
+        { image: "1", flag: "1", title: "Nine to Five (反恐精英) (3场2胜)", liveMaster: "呆妹儿小霸王", hot: "2.3万" },
+        { image: "2", flag: "2", title: "季后赛BO7QG vs eStarPro", liveMaster: "DNF王不二", hot: "5.1万" },
+        { image: "3", flag: "3", title: "CFS赛事預告，中国战队加油", liveMaster: "穿越火线运营团队", hot: "13万" },
+        { image: "4", flag: "4", title: "Nine to Five (反恐精英) (3场2胜)", liveMaster: "呆妹儿小霸王", hot: "5.1万" },
+        { image: "5", flag: "2", title: "季后赛BO7QG vs eStarPro", liveMaster: "DNF王不二", hot: "5.1万" },
+        { image: "6", flag: "5", title: "CFS赛事預告，中国战队加油", liveMaster: "穿越火线运营团队", hot: "13万" },
+        { image: "7", flag: "4", title: "Nine to Five (反恐精英) (3场2胜)", liveMaster: "呆妹儿小霸王", hot: "5.1万" },
+        { image: "8", flag: "2", title: "季后赛BO7QG vs eStarPro", liveMaster: "DNF王不二", hot: "5.1万" },
+        { image: "9", flag: "5", title: "CFS赛事預告，中国战队加油", liveMaster: "穿越火线运营团队", hot: "13万" }
     ]
     return (
         <StyledDiv className="AllLiveChannels_bg" >

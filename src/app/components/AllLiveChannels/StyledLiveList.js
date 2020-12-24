@@ -7,7 +7,7 @@ export const StyledLiveList = (props) => {
         <StyledDiv>
             {
                 props.gameList.map(game => {
-                    return <StyledLiveBlock image={game.image} flag={game.flag} />
+                    return <StyledLiveBlock image={game.image} flag={game.flag} title={game.title} liveMaster={game.liveMaster} hot={game.hot} />
                 })
             }
         </StyledDiv>
