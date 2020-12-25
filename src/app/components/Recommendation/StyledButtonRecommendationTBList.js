@@ -1,14 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components';
 import { StyledButtonRecommendationTB } from './StyledButtonRecommendationTB';
 
 export const StyledButtonRecommendationTBList = (props) => {
-    const [list, setList] = useState(props.list);
+    const list = props.list;
     const [index, setIndex] = useState(0);
-
-    // useEffect(() => {
-    //     console.log('index: ', index)
-    // }, [index])
 
     return (
         <StyledDiv className="Recommendation_thumbnail_list" >
