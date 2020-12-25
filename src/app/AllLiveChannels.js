@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { StyledDivAllLiveChannels } from './components/AllLiveChannels/StyledDivAllLiveChannels';
 
 const AllLiveChannels = (props) => {
-    const [Index, setIndex] = useState();
     return (
         <div>
             <StyledDivAllLiveChannels />
