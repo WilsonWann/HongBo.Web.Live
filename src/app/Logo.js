@@ -11,9 +11,11 @@ const Logo = () => {
 }
 
 const StyledGlobalLogo = styled.div`
-    position: relative;
+    position: absolute;
     width: 1174px;
-    margin: 40px auto 0;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
     text-align: left;
 `
 

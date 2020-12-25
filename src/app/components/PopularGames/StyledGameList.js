@@ -6,8 +6,8 @@ export const StyledGameList = (props) => {
     return (
         <StyledDiv>
             {
-                props.list.map((gameName) => {
-                    return <StyledGame gameName={gameName} />
+                props.list.map((gameName, index) => {
+                    return <StyledGame key={index} gameName={gameName} />
                 })
             }
         </StyledDiv>

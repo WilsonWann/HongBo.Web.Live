@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
 export const FloatingImage = styled.div`
@@ -13,4 +14,6 @@ export const FloatingImage = styled.div`
         top 0 center,
         top 970px center,
         top 1620px center;
+    transition: top 1s ease-in;
+    
 `

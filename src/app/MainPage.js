@@ -47,7 +47,7 @@ const StyledMainPage = styled.div`
 
 const StyledRecommendation = styled.div`
     position:relative;
-    margin-top: 98px;
+    margin-top: 181px;
 `
 const StyledPopularGames = styled.div`
     position:relative;

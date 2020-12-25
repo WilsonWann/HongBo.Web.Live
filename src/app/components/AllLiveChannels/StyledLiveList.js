@@ -6,8 +6,8 @@ export const StyledLiveList = (props) => {
     return (
         <StyledDiv>
             {
-                props.gameList.map(game => {
-                    return <StyledLiveBlock image={game.image} flag={game.flag} title={game.title} liveMaster={game.liveMaster} hot={game.hot} />
+                props.totalGameList.map((game, index) => {
+                    return <StyledLiveBlock key={index} image={game.image} flag={game.flag} title={game.title} liveMaster={game.liveMaster} hot={game.hot} />
                 })
             }
         </StyledDiv>

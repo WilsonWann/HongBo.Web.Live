@@ -54,4 +54,6 @@ const StyledDiv = styled.div`
     background-size: contain;
     background-position: center;
     display: flex;
+    padding: 3px 0 1px 4px;
+    box-sizing: border-box;
 `
