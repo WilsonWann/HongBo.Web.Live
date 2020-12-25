@@ -1,6 +1,27 @@
 import styled from 'styled-components';
 
-export const StyledDirButton = styled.button`
+export const StyledDirButton = (props) => {
+
+    const { dir, list, currIndex, setCurrIndex, showNumber } = props;
+    const setIndexByDir = (direction) => {
+        if (direction === "L") {
+            if (currIndex - 1 < 0) {
+                return
+            }
+            setCurrIndex(currIndex - 1)
+        } else if (direction === "R") {
+            if (currIndex + 1 > list.length - showNumber) {
+                return
+            }
+            setCurrIndex(currIndex + 1)
+        }
+    }
+
+    return (
+        <StyledButton onClick={() => setIndexByDir(dir)} dir={dir}></StyledButton>
+    )
+}
+export const StyledButton = styled.button`
     position: relative;
     width: 36px;
     height: 62px;

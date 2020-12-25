@@ -17,6 +17,7 @@ const StyledGlobalLogo = styled.div`
     left: 50%;
     transform: translateX(-50%);
     text-align: left;
+    z-index: 100;
 `
 
 export default Logo

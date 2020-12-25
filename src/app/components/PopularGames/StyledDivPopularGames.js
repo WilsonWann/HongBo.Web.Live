@@ -4,12 +4,20 @@ import { StyledDirButton } from './StyledDirButton';
 import { StyledGameList } from './StyledGameList';
 
 export const StyledDivPopularGames = () => {
-    const [list] = useState(['AG', 'FB', 'BG', 'MG', 'AG']);
+    const showNumber = 4;
+    const list = [
+        'AG', 'FB', 'BG', 'MG', 
+        'AG', 'FB', 'BG', 'MG',
+        'AG', 'FB'
+    ];
+    const [currIndex, setCurrIndex] = useState(0);
+
+ 
     return (
         <StyledDiv className="PopularGames_bg" >
-            <StyledDirButton dir="L"></StyledDirButton>
-            <StyledGameList list={list} />
-            <StyledDirButton dir="R"></StyledDirButton>
+            <StyledDirButton showNumber={showNumber} currIndex={currIndex} setCurrIndex={setCurrIndex} list={list} dir="L"></StyledDirButton>
+            <StyledGameList currIndex={currIndex} list={list} />
+            <StyledDirButton showNumber={showNumber} currIndex={currIndex} setCurrIndex={setCurrIndex} list={list} dir="R"></StyledDirButton>
         </StyledDiv>
     )
 }
