@@ -1,13 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components';
 import { StyledNavButton } from './StyledNav';
 
 export const StyledNavList = (props) => {
+
+    const [currIndex, setCurrIndex] = useState(0);
+
     return (
         <StyledDiv>
             {
                 props.list.map((title, index) => {
-                    return <StyledNavButton key={index} value={title} ></StyledNavButton>
+                    return <StyledNavButton setCurrIndex={setCurrIndex} currIndex={currIndex}
+                        index={index} key={index} value={title} ></StyledNavButton>
                 })
             }
         </StyledDiv>

@@ -2,8 +2,11 @@ import React from 'react'
 import styled from 'styled-components';
 
 export const StyledNavButton = (props) => {
+    const { value, currIndex, index,setCurrIndex } = props;
+
     return (
-        <StyledButton>{props.value}</StyledButton>
+        <StyledButton onClick={() => setCurrIndex(index)} 
+        className={currIndex === index ? 'selected' : ''}>{value}</StyledButton>
     )
 }
 
@@ -22,6 +25,7 @@ const StyledButton = styled.button`
     &:hover{
         color: #eb4f2d;
     }
+    &.selected,
     &:active{
         background-color: rgba(122, 57, 14, 0.26);
         border: 1px solid #e6c9ab;

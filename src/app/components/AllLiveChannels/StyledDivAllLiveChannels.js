@@ -42,12 +42,12 @@ export const StyledDivAllLiveChannels = () => {
 
     const [showList, setShowList] = useState(totalGameList.slice(0,9));
     const pageSize = 9;
-    const list = ['全部', '直播', '体育', '电竞', '电子', '真人', '棋牌', '高热门度'];
+    const navList = ['全部', '直播', '体育', '电竞', '电子', '真人', '棋牌', '高热门度'];
     
     return (
         <StyledDiv className="AllLiveChannels_bg" >
             <StyledWrapperDiv>
-                <StyledNavList list={list} />
+                <StyledNavList list={navList} />
                 <StyledLiveList showList={showList} ></StyledLiveList>
                 <StyledPaging totalGameList={totalGameList} setShowList={setShowList} pageSize={pageSize}></StyledPaging>
             </StyledWrapperDiv>
