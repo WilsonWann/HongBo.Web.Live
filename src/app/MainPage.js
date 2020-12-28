@@ -1,12 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Recommendation from './Recommendation';
 import PopularGames from './PopularGames';
 import AllLiveChannels from './AllLiveChannels';
 import Logo from './Logo';
 import { FloatingImage } from './components/StyledFloatingImage';
 import styled from 'styled-components';
+import { useDispatch, useSelector } from 'react-redux';
+import GetTopGameList from './api/GetTopGame';
+import GetStreamRoomList from './api/GetStreamRoomList';
 
-const MainPage = (props) => {
+
+const MainPage = () => {
+    const dispatch = useDispatch()
+    const topGameList = useSelector(state => state.getTopGameReducer.topGameList)
+    useEffect(() => {
+        GetTopGameList(dispatch);
+        GetStreamRoomList(dispatch)
+    }, [dispatch]);
     return (
 
         <StyledMainPage className="MainPage">
@@ -17,7 +27,7 @@ const MainPage = (props) => {
                 <Recommendation />
             </StyledRecommendation>
             <StyledPopularGames className="MainPage_PopularGames">
-                <PopularGames />
+                <PopularGames topGameList={topGameList} />
             </StyledPopularGames>
             <StyledAllLiveChannels className="MainPage_AllLiveChannels">
                 <AllLiveChannels />
