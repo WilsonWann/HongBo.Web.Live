@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StyledDivRecommendation } from './components/Recommendation/StyledDivRecommendation';
 
 
-const Recommendation = (props) => {
-    const [index, setIndex] = useState();
+const Recommendation = () => {
     return (
         <div>
-            <StyledDivRecommendation index={index} setIndex={setIndex} />
+            <StyledDivRecommendation />
         </div>
     );
 }

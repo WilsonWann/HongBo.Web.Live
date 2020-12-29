@@ -6,9 +6,6 @@ import { StyledGameList } from './StyledGameList';
 export const StyledDivPopularGames = (props) => {
     const { topGameList } = props;
     const showNumber = 4;
-    useEffect(() => {
-        console.log('topGameList: ', topGameList)
-    }, [topGameList]);
     const [currIndex, setCurrIndex] = useState(0)
 
 

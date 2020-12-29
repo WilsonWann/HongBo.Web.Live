@@ -21,7 +21,7 @@ const StyledDiv = styled.div`
     width: 100%;
     height: 100%;
     background-image: url(${props => props.imagePath});
-    background-color: white;
+    background-color: #ffffff;
     background-size: cover;
     background-repeat: no-repeat;
     display: inline-block;

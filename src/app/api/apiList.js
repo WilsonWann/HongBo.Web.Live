@@ -1,7 +1,10 @@
-const getTopGame = '/service/API/Live/getTopGame';
-const getStreamRoomList = '/service/API/Live/GetStreamRoomList';
+const prefix = '/service'
+const getTopGame = `${prefix}/API/Live/getTopGame`;
+const getStreamRoomList = `${prefix}/API/Live/GetStreamRoomList`;
+const liveGuestInfo = `${prefix}/API/Live/LiveGuestInfo`;
 
 export {
     getTopGame,
-    getStreamRoomList
+    getStreamRoomList,
+    liveGuestInfo
 }

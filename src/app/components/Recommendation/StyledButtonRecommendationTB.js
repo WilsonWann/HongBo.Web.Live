@@ -18,7 +18,7 @@ export const StyledButton = styled.button`
     width: 187px;
     height: 96px;
     margin: 9px auto 0;
-    background-color: green;
+    background-color: #ffffff;
     border: solid 2px #f4d7a8;
     border-radius: 5px;
     box-sizing: border-box;

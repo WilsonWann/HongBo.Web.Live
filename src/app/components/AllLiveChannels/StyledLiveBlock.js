@@ -11,10 +11,12 @@ export const StyledLiveBlock = (props) => {
         ImagePath,
         NickName,
         PlatformID,
+        Popularity,
         RoomID,
         Title,
         needPass
     } = streamRoom
+
     const gameName = GetGameName(PlatformID);
     return (
         <StyledLi flag={gameName}>
@@ -22,7 +24,7 @@ export const StyledLiveBlock = (props) => {
                 image={ImagePath}
                 title={Title}
                 liveMaster={NickName ? NickName : Account}
-                hot={props.hot} />
+                hot={Popularity} />
         </StyledLi>
     )
 }
@@ -50,7 +52,7 @@ const StyledLi = styled.li`
     width: 33%;
     max-width: calc(33% - 10px);
     height : 258px;
-    background-color: lightgoldenrodyellow;
+    background-color: #ffffff;
     display: flex;
     flex-direction: column;
     border-radius: 10px;
