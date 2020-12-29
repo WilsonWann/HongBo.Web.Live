@@ -1,10 +1,9 @@
-import { useEffect } from 'react';
 import styled from 'styled-components';
 import GetGameName from './../../enum/Platform';
 
 export const StyledGame = (props) => {
     const { topGame } = props
-    const { GameTypeID, PlatformID, Count } = topGame
+    const { PlatformID } = topGame
     const gameName = GetGameName(PlatformID);
     return (
         <StyledDiv gameName={gameName}/>

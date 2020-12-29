@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components';
 import { StyledLink } from './StyledLink';
 import GetGameName from './../../enum/Platform';
@@ -7,15 +7,11 @@ export const StyledLiveBlock = (props) => {
     const { streamRoom } = props
     const {
         Account,
-        GameTypeID,
         ImagePath,
         NickName,
         PlatformID,
         Popularity,
-        RoomID,
-        Title,
-        needPass
-    } = streamRoom
+        Title    } = streamRoom
 
     const gameName = GetGameName(PlatformID);
     return (

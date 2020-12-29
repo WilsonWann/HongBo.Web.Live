@@ -1,15 +1,15 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components';
-import { StyledButtonRecommendationTB } from './StyledButtonRecommendationTB';
+import { StyledRecommendation } from './StyledRecommendation';
 
-export const StyledButtonRecommendationTBList = (props) => {
+export const StyledRecommendationList = (props) => {
 
     const { streamRoomList, selectedRoomID, setSelectedRoomID } = props
     return (
-        <StyledDiv className="Recommendation_thumbnail_list" >
+        <StyledUl className="Recommendation_thumbnail_list" >
             {
                 streamRoomList.map((streamRoom) => {
-                    return <StyledButtonRecommendationTB
+                    return <StyledRecommendation
                         imagePath={streamRoom.ImagePath}
                         key={streamRoom.RoomID}
                         index={+streamRoom.RoomID}
@@ -17,11 +17,11 @@ export const StyledButtonRecommendationTBList = (props) => {
                         setSelectedRoomID={setSelectedRoomID} />
                 })
             }
-        </StyledDiv>
+        </StyledUl>
     )
 }
 
-const StyledDiv = styled.div`
+const StyledUl = styled.ul`
     position: relative;
     width: 212px;
     height: 538px;
@@ -31,4 +31,7 @@ const StyledDiv = styled.div`
     justify-content: start;
     align-items: center;
     z-index:1;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
 `

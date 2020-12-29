@@ -7,7 +7,6 @@ const initialState = {
 }
 
 const liveGuestInfoReducer = (state = initialState, action) => {
-    console.log('action: ',action)
     switch (action.type) {
         case LIVE_GUEST_INFO_SUCCESS:
             return {

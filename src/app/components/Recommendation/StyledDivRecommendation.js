@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { StyledDivLiveStreamLink } from './StyledDivLiveStreamLink';
-import { StyledButtonRecommendationTBList } from './StyledButtonRecommendationTBList';
+import { StyledRecommendationList } from './StyledRecommendationList';
 
 export const StyledDivRecommendation = () => {
 
@@ -23,7 +23,7 @@ export const StyledDivRecommendation = () => {
             <StyledDiv className="Recommendation_bg" >
                 <StyledDivLiveStreamLink
                     selectedStreamRoom={selectedStreamRoom} />
-                <StyledButtonRecommendationTBList
+                <StyledRecommendationList
                     streamRoomList={streamRoomList}
                     selectedRoomID={selectedRoomID}
                     setSelectedRoomID={setSelectedRoomID} />

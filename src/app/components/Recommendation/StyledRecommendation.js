@@ -1,20 +1,17 @@
-import { useEffect } from 'react';
 import styled from 'styled-components';
 
-export const StyledButtonRecommendationTB = (props) => {
+export const StyledRecommendation = (props) => {
     const { imagePath, index, selectedRoomID, setSelectedRoomID} = props;
     return (
-        <StyledButton
+        <StyledLi
             className={selectedRoomID === index ? 'selected' : ''}
             imagePath={imagePath} value={index} 
-            onClick={(e) => setSelectedRoomID(+e.target.value)}></StyledButton>
+            onClick={(e) => setSelectedRoomID(+e.target.value)}></StyledLi>
     )
 }
 
-export const StyledButton = styled.button`
+export const StyledLi = styled.li`
     position: relative;
-    // width: 182px;
-    // height: 92px;
     width: 187px;
     height: 96px;
     margin: 9px auto 0;
@@ -25,6 +22,7 @@ export const StyledButton = styled.button`
     background-image: url(${props => props.imagePath});
     background-repeat: no-repeat;
     background-size: cover;
+    cursor: pointer;
     &:before{
         content:url(${process.env.PUBLIC_URL + '/assets/images/Android/thumbnail_182x92_h.png'});
         position: absolute;
@@ -44,7 +42,6 @@ export const StyledButton = styled.button`
         height: 100%;
         top: 0;
         left: 0;
-        // background-image: linear-gradient(rgba(81, 81, 81, 0.5), rgba(235, 222, 202, 0.45));
         background-color: rgba(177, 169, 156, 0.73);
         background-position: center center;
         background-repeat: no-repeat;

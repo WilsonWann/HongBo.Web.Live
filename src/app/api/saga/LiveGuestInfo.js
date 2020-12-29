@@ -29,9 +29,9 @@ function* liveGuestInfo() {
     }
 }
 
-function* checkGuestToken(){
+function* checkGuestToken() {
     const guestToken = yield select(state => state.liveGuestInfoReducer.guestToken)
-    
+    console.log('guestToken: ', guestToken)
 }
 
 function* mySaga() {
