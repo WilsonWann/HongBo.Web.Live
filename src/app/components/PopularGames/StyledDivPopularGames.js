@@ -6,8 +6,8 @@ import { StyledGameList } from './StyledGameList';
 export const StyledDivPopularGames = (props) => {
     const showNumber = 4;
 
-    const topGameList = props.topGameList;
-    console.log('StyledDivPopularGames topGameList: ',topGameList)
+    // const topGameList = props.topGameList;
+    // console.log('StyledDivPopularGames topGameList: ',topGameList)
     const list = [
         'AG', 'FB', 'BG', 'MG', 
         'AG', 'FB', 'BG', 'MG',

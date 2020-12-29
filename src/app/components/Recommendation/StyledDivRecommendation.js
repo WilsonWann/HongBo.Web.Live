@@ -1,14 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { StyledButtonRecommendationTBList } from './StyledButtonRecommendationTBList';
 
 export const StyledDivRecommendation = () => {
-    const bt_arr = [0, 1, 2, 3, 4];
-
+    
+    const streamRoomList = useSelector(state => state.getStreamRoomListReducer.streamRoomList)
+    const [imagePath, setImagePath] = useState(null);
+    useEffect(() => {
+        if (streamRoomList) {
+            console.log('Recommendation streamRoomList: ', streamRoomList)
+            streamRoomList && setImagePath(streamRoomList[0].ImagePath)
+        }
+    }, [streamRoomList]);
     return (
-        <StyledDiv className="Recommendation_bg" >
+        <StyledDiv imagePath={imagePath} className="Recommendation_bg" >
             <div className="Recommendation_LiveStream"></div>
-            <StyledButtonRecommendationTBList list={bt_arr} />
+            <StyledButtonRecommendationTBList />
         </StyledDiv>
     )
 }
@@ -18,7 +26,7 @@ const StyledDiv = styled.div`
         position: relative;
         width: 960px;
         height: 538px;
-        background-image: url(${process.env.PUBLIC_URL + '/assets/images/Android/1_img.jpg'});
+        background-image: url(${props => props.imagePath});
         background-color: white;
         display: inline-block;
     }

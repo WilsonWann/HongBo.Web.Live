@@ -6,19 +6,24 @@ import Logo from './Logo';
 import { FloatingImage } from './components/StyledFloatingImage';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
-import GetTopGameList from './api/GetTopGame';
-import GetStreamRoomList from './api/GetStreamRoomList';
-
+import { GET_TOP_GAME_REQUEST } from './actions/GetTopGameAction.js';
+import { GET_STREAM_ROOM_LIST_REQUEST } from './actions/GetStreamRoomListAction';
 
 const MainPage = () => {
     const dispatch = useDispatch()
     const topGameList = useSelector(state => state.getTopGameReducer.topGameList)
+    const streamRoomList = useSelector(state => state.getStreamRoomListReducer.streamRoomList)
     useEffect(() => {
-        GetTopGameList(dispatch);
-        GetStreamRoomList(dispatch)
-    }, [dispatch]);
+        dispatch({ type: GET_TOP_GAME_REQUEST })
+        dispatch({ type: GET_STREAM_ROOM_LIST_REQUEST })
+    }, [dispatch])
+    useEffect(() => {
+        console.log('topGameList: ', topGameList)
+    }, [topGameList]);
+    useEffect(() => {
+        console.log('streamRoomList: ', streamRoomList)
+    }, [streamRoomList]);
     return (
-
         <StyledMainPage className="MainPage">
             <Logo className="MainPage_Logo" />
             <FloatingImage className="MainPage_FloatingImage" type="A" />

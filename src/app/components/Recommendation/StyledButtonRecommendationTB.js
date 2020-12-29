@@ -1,16 +1,31 @@
+import { useEffect } from 'react';
 import styled from 'styled-components';
 
-export const StyledButtonRecommendationTB = styled.button`
+export const StyledButtonRecommendationTB = (props) => {
+    const { imagePath, value, setIndex } = props;
+    useEffect(() => {
+        console.log('imagePath:',imagePath)
+        console.log('value:',value)
+        console.log('setIndex:',setIndex)
+        console.log('***************')
+    }, [imagePath, value, setIndex]);
+    return (
+        <StyledButton imagePath={imagePath} value={value} onClick={(e) => setIndex(+e.target.value)}></StyledButton>
+    )
+}
+
+export const StyledButton = styled.button`
     position: relative;
     // width: 182px;
     // height: 92px;
     width: 187px;
     height: 96px;
+    margin: 9px auto 0;
     background-color: green;
     border: solid 2px #f4d7a8;
     border-radius: 5px;
     box-sizing: border-box;
-    background-image: url(${props => process.env.PUBLIC_URL + '/assets/images/Android/1_thumbnail-' + props.value + '.jpg'});
+    background-image: url(${props => props.imagePath});
     background-repeat: no-repeat;
     &:before{
         content:url(${process.env.PUBLIC_URL + '/assets/images/Android/thumbnail_182x92_h.png'});
@@ -46,5 +61,11 @@ export const StyledButtonRecommendationTB = styled.button`
         &:after{
             display:none;
         }
+    }
+    &:focus{
+        outline: none;
+    }
+    &:last-child{
+        margin: 10px auto;
     }
 `

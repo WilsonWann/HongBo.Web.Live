@@ -1,6 +1,6 @@
-export const Logger = (action, content) => {
-    return dispatch => {
-        dispatch(action(content));
-        console.log('$$$ ' + action + ' : ', content)
+export const Logger = (action, payload = null) =>
+    dispatch => {
+        dispatch(action(payload));
+        console.log('$$$ (' + action.name + ', ' + action().type + ') payload: ', payload)
     }
-}
+
