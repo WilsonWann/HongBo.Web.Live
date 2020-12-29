@@ -1,16 +1,16 @@
 import React from 'react'
 import styled from 'styled-components';
 
-export const StyledNavButton = (props) => {
-    const { value, currIndex, index,setCurrIndex } = props;
+export const StyledNavItem = (props) => {
+    const { value, currIndex, index, setCurrIndex } = props;
 
     return (
-        <StyledButton onClick={() => setCurrIndex(index)} 
-        className={currIndex === index ? 'selected' : ''}>{value}</StyledButton>
+        <StyledLi onClick={() => setCurrIndex(index)}
+            className={currIndex === index ? 'selected' : ''}>{value}</StyledLi>
     )
 }
 
-const StyledButton = styled.button`
+const StyledLi = styled.li`
     position: relative;
     width: 102px;
     height : 32px;
@@ -22,6 +22,9 @@ const StyledButton = styled.button`
     border-radius: 16px;
     border: 1px solid #ffefe2;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     &:hover{
         color: #eb4f2d;
     }
