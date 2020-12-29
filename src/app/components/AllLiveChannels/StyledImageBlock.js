@@ -3,9 +3,13 @@ import styled from 'styled-components';
 
 export const StyledImageBlock = (props) => {
     return (
-        <StyledDiv className={props.name} image={props.image} />
+        <StyledPicture>
+            <StyledDiv className={props.name} image={props.image} />
+        </StyledPicture>
     )
 }
+const StyledPicture = styled.picture`
+`
 
 const StyledDiv = styled.div`
     &:before{
@@ -28,4 +32,5 @@ const StyledDiv = styled.div`
     height : 196px;
     background-color: lightskyblue;
     background-image: url(${props => process.env.PUBLIC_URL + '/assets/images/Android/3_thumbnail-' + props.image + '.jpg'});
+    transition: transform 0.1s linear;
 `

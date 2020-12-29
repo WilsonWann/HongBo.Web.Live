@@ -3,13 +3,13 @@ import styled from 'styled-components';
 
 export const StyledInfoBlock = (props) => {
     return (
-        <StyledDiv className="StyledInfoBlock">
+        <StyledFigCation className="StyledInfoBlock">
             <StyledTitle>{props.title}</StyledTitle>
             <StyledSubTitle>
                 <StyledLiveMaster>{props.liveMaster}</StyledLiveMaster>
                 <StyledHot>{props.hot}</StyledHot>
             </StyledSubTitle>
-        </StyledDiv>
+        </StyledFigCation>
     )
 }
 
@@ -51,7 +51,7 @@ const StyledHot = styled(StyledSubInfo)`
     }
 `
 
-const StyledDiv = styled.div`
+const StyledFigCation = styled.figcaption`
     position: relative;
     width: 100%;
     height : 62px;

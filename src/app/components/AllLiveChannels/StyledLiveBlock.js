@@ -1,17 +1,16 @@
 import React from 'react'
 import styled from 'styled-components';
-import { StyledImageBlock } from './StyledImageBlock';
-import { StyledInfoBlock } from './StyledInfoBlock';
+import { StyledLink } from './StyledLink';
 
 export const StyledLiveBlock = (props) => {
     return (
-        <StyledDiv flag={props.flag}>
-            <StyledImageBlock image={props.image} name="image-block-hover" />
-            <StyledInfoBlock title={props.title} liveMaster={props.liveMaster} hot={props.hot} />
-        </StyledDiv>
+        <StyledLi flag={props.flag}>
+            <StyledLink image={props.image} title={props.title} liveMaster={props.liveMaster} hot={props.hot} />
+        </StyledLi>
     )
 }
-const StyledDiv = styled.div`
+
+const StyledLi = styled.li`
     &:before,
     &:after{
         content: '';
@@ -31,7 +30,8 @@ const StyledDiv = styled.div`
         background-image: url(${props => process.env.PUBLIC_URL + '/assets/images/Android/tag_logo_' + props.flag + '.png'});
     }
     position: relative;
-    width: 350px;
+    width: 33%;
+    max-width: calc(33% - 10px);
     height : 258px;
     background-color: lightgoldenrodyellow;
     display: flex;
@@ -39,6 +39,7 @@ const StyledDiv = styled.div`
     border-radius: 10px;
     overflow: hidden;
     cursor: pointer;
+    margin: 0 6px 11px;
     &:hover{
         box-shadow: 0 0 0 3px #ff0000;
         .image-block-hover{

@@ -12,7 +12,6 @@ import { GET_STREAM_ROOM_LIST_REQUEST } from './actions/GetStreamRoomListAction'
 const MainPage = () => {
     const dispatch = useDispatch()
     const topGameList = useSelector(state => state.getTopGameReducer.topGameList)
-    const streamRoomList = useSelector(state => state.getStreamRoomListReducer.streamRoomList)
     useEffect(() => {
         dispatch({ type: GET_TOP_GAME_REQUEST })
         dispatch({ type: GET_STREAM_ROOM_LIST_REQUEST })
@@ -20,9 +19,6 @@ const MainPage = () => {
     useEffect(() => {
         console.log('topGameList: ', topGameList)
     }, [topGameList]);
-    useEffect(() => {
-        console.log('streamRoomList: ', streamRoomList)
-    }, [streamRoomList]);
     return (
         <StyledMainPage className="MainPage">
             <Logo className="MainPage_Logo" />
