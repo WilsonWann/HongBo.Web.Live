@@ -30,7 +30,8 @@ const StyledDiv = styled.div`
     position: relative;
     width: 100%;
     height : 196px;
-    background-color: lightskyblue;
-    background-image: url(${props => process.env.PUBLIC_URL + '/assets/images/Android/3_thumbnail-' + props.image + '.jpg'});
-    transition: transform 0.1s linear;
+    background-color: transparent;
+    background-size: cover;
+    background-image: url(${props => props.image});
+    transition: transform 0.2s linear;
 `

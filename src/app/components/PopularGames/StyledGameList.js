@@ -4,7 +4,7 @@ import { StyledGame } from './StyledGame';
 
 export const StyledGameList = (props) => {
     const { list, currIndex } = props;
-    console.log('list: ',list)
+    // console.log('list: ',list)
     return (
         <StyleWrapperDiv>
             <StyledDiv style={{ 'transform': `translateX(calc((-950px / 4 - 2px) * ${currIndex}))` }}>

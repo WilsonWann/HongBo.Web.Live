@@ -1,11 +1,31 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components';
 import { StyledLink } from './StyledLink';
+import GetGameName from './../../enum/Platform';
 
 export const StyledLiveBlock = (props) => {
+    const { streamRoom } = props
+    const {
+        Account,
+        GameTypeID,
+        ImagePath,
+        NickName,
+        PlatformID,
+        RoomID,
+        Title,
+        needPass
+    } = streamRoom
+    const gameName = GetGameName(PlatformID);
+    useEffect(() => {
+        console.log('gameName: ', gameName)
+    }, [gameName]);
     return (
-        <StyledLi flag={props.flag}>
-            <StyledLink image={props.image} title={props.title} liveMaster={props.liveMaster} hot={props.hot} />
+        <StyledLi flag={gameName}>
+            <StyledLink
+                image={ImagePath}
+                title={Title}
+                liveMaster={NickName ? NickName : Account}
+                hot={props.hot} />
         </StyledLi>
     )
 }
@@ -26,8 +46,8 @@ const StyledLi = styled.li`
         z-index:1;
     } 
     &:after{
-        background-size: initial;
-        background-image: url(${props => process.env.PUBLIC_URL + '/assets/images/Android/tag_logo_' + props.flag + '.png'});
+        background-size: 80%;
+        background-image: url(${props => process.env.PUBLIC_URL + '/assets/images/Android/logo_' + props.flag + '.png'});
     }
     position: relative;
     width: 33%;

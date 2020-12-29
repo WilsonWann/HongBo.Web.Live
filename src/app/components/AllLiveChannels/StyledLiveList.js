@@ -1,30 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components';
 import { StyledLiveBlock } from './StyledLiveBlock';
-import { StyledLiveBlockRow } from './StyledLiveBlockRow';
 
 export const StyledLiveList = (props) => {
-    console.log('props.showList: ', props.showList)
-    const rows = [
-        // props.showList.slice(0, 3),
-        // props.showList.slice(3, 6),
-        // props.showList.slice(6, 9)
-    ]
-    return (
-        <StyledUl >
-            {
-                // rows.map((row, rowNumber) => {
-                //     return row.length > 0
-                //         ? <StyledLiveBlockRow colCount={row.length} key={rowNumber} row={row} />
-                //         : null;
-                // })
-                props.showList.map((block, blockNumber) => {
-                    return <StyledLiveBlock key={blockNumber} image={block.image} flag={block.flag}
-                        title={block.title} liveMaster={block.liveMaster} hot={block.hot} />
-                })
-            }
-        </StyledUl>
-    )
+    const { showList } = props
+    return showList
+        ? (
+            <StyledUl >
+                {
+                    showList.map((streamRoom, blockNumber) =>
+                        <StyledLiveBlock key={blockNumber} streamRoom={streamRoom} />)
+                }
+            </StyledUl>
+        )
+        : null
 }
 const StyledUl = styled.ul`
     position: relative;

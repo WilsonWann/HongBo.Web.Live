@@ -1,58 +1,32 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { StyledLiveList } from './StyledLiveList';
 import { StyledNavList } from './StyledNavList';
 import { StyledPaging } from './StyledPaging';
 
 export const StyledDivAllLiveChannels = () => {
-    const totalGameList = [
-        { image: "1", flag: "1", title: "Nine to Five (反恐精英) (3场2胜)", liveMaster: "呆妹儿小霸王", hot: "2.3万" },
-        { image: "2", flag: "2", title: "季后赛BO7QG vs eStarPro", liveMaster: "DNF王不二", hot: "5.1万" },
-        { image: "3", flag: "3", title: "CFS赛事預告，中国战队加油", liveMaster: "穿越火线运营团队", hot: "13万" },
-        { image: "3", flag: "3", title: "CFS赛事預告，中国战队加油", liveMaster: "穿越火线运营团队", hot: "13万" },
-        { image: "3", flag: "3", title: "CFS赛事預告，中国战队加油", liveMaster: "穿越火线运营团队", hot: "13万" },
-        { image: "3", flag: "3", title: "CFS赛事預告，中国战队加油", liveMaster: "穿越火线运营团队", hot: "13万" },
-        { image: "3", flag: "3", title: "CFS赛事預告，中国战队加油", liveMaster: "穿越火线运营团队", hot: "13万" },
-        { image: "3", flag: "3", title: "CFS赛事預告，中国战队加油", liveMaster: "穿越火线运营团队", hot: "13万" },
-        { image: "3", flag: "3", title: "CFS赛事預告，中国战队加油", liveMaster: "穿越火线运营团队", hot: "13万" },
-        { image: "4", flag: "4", title: "Nine to Five (反恐精英) (3场2胜)", liveMaster: "呆妹儿小霸王", hot: "5.1万" },
-        { image: "4", flag: "4", title: "Nine to Five (反恐精英) (3场2胜)", liveMaster: "呆妹儿小霸王", hot: "5.1万" },
-        { image: "3", flag: "3", title: "CFS赛事預告，中国战队加油", liveMaster: "穿越火线运营团队", hot: "13万" },
-        { image: "4", flag: "4", title: "Nine to Five (反恐精英) (3场2胜)", liveMaster: "呆妹儿小霸王", hot: "5.1万" },
-        { image: "4", flag: "4", title: "Nine to Five (反恐精英) (3场2胜)", liveMaster: "呆妹儿小霸王", hot: "5.1万" },
-        { image: "5", flag: "2", title: "季后赛BO7QG vs eStarPro", liveMaster: "DNF王不二", hot: "5.1万" },
-        { image: "5", flag: "2", title: "季后赛BO7QG vs eStarPro", liveMaster: "DNF王不二", hot: "5.1万" },
-        { image: "5", flag: "2", title: "季后赛BO7QG vs eStarPro", liveMaster: "DNF王不二", hot: "5.1万" },
-        { image: "6", flag: "5", title: "CFS赛事預告，中国战队加油", liveMaster: "穿越火线运营团队", hot: "13万" },
-        { image: "7", flag: "4", title: "Nine to Five (反恐精英) (3场2胜)", liveMaster: "呆妹儿小霸王", hot: "5.1万" },
-        { image: "6", flag: "5", title: "CFS赛事預告，中国战队加油", liveMaster: "穿越火线运营团队", hot: "13万" },
-        { image: "7", flag: "4", title: "Nine to Five (反恐精英) (3场2胜)", liveMaster: "呆妹儿小霸王", hot: "5.1万" },
-        { image: "7", flag: "4", title: "Nine to Five (反恐精英) (3场2胜)", liveMaster: "呆妹儿小霸王", hot: "5.1万" },
-        { image: "7", flag: "4", title: "Nine to Five (反恐精英) (3场2胜)", liveMaster: "呆妹儿小霸王", hot: "5.1万" },
-        { image: "7", flag: "4", title: "Nine to Five (反恐精英) (3场2胜)", liveMaster: "呆妹儿小霸王", hot: "5.1万" },
-        { image: "7", flag: "4", title: "Nine to Five (反恐精英) (3场2胜)", liveMaster: "呆妹儿小霸王", hot: "5.1万" },
-        { image: "7", flag: "4", title: "Nine to Five (反恐精英) (3场2胜)", liveMaster: "呆妹儿小霸王", hot: "5.1万" },
-        { image: "7", flag: "4", title: "Nine to Five (反恐精英) (3场2胜)", liveMaster: "呆妹儿小霸王", hot: "5.1万" },
-        { image: "7", flag: "4", title: "Nine to Five (反恐精英) (3场2胜)", liveMaster: "呆妹儿小霸王", hot: "5.1万" },
-        { image: "7", flag: "4", title: "Nine to Five (反恐精英) (3场2胜)", liveMaster: "呆妹儿小霸王", hot: "5.1万" },
-        { image: "7", flag: "4", title: "Nine to Five (反恐精英) (3场2胜)", liveMaster: "呆妹儿小霸王", hot: "5.1万" },
-        { image: "9", flag: "5", title: "CFS赛事預告，中国战队加油", liveMaster: "穿越火线运营团队", hot: "13万" },
-        { image: "5", flag: "2", title: "季后赛BO7QG vs eStarPro", liveMaster: "DNF王不二", hot: "5.1万" }
-    ]
-
-    const [showList, setShowList] = useState(totalGameList.slice(0,9));
+    const streamRoomList = useSelector(state => state.getStreamRoomListReducer.streamRoomList)
+    const [showList, setShowList] = useState(streamRoomList && streamRoomList.slice(0, 9));
     const pageSize = 9;
     const navList = ['全部', '直播', '体育', '电竞', '电子', '真人', '棋牌', '高热门度'];
-    
-    return (
-        <StyledDiv className="AllLiveChannels_bg" >
-            <StyledWrapperDiv>
-                <StyledNavList list={navList} />
-                <StyledLiveList showList={showList} ></StyledLiveList>
-                <StyledPaging totalGameList={totalGameList} setShowList={setShowList} pageSize={pageSize}></StyledPaging>
-            </StyledWrapperDiv>
-        </StyledDiv>
-    )
+    useEffect(() => {
+        if (streamRoomList) {
+            setShowList(streamRoomList.slice(0, 9))
+        }
+        console.log('streamRoomList: ',streamRoomList)
+    }, [streamRoomList]);
+    return streamRoomList
+        ? (
+            <StyledDiv className="AllLiveChannels_bg" >
+                <StyledWrapperDiv>
+                    <StyledNavList list={navList} />
+                    <StyledLiveList showList={showList} ></StyledLiveList>
+                    <StyledPaging streamRoomList={streamRoomList} setShowList={setShowList} pageSize={pageSize}></StyledPaging>
+                </StyledWrapperDiv>
+            </StyledDiv>
+        )
+        : null
 }
 
 const StyledWrapperDiv = styled.div`

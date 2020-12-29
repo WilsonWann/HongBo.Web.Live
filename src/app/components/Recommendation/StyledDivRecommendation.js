@@ -1,35 +1,38 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
+import { StyledDivLiveStreamLink } from './StyledDivLiveStreamLink';
 import { StyledButtonRecommendationTBList } from './StyledButtonRecommendationTBList';
 
 export const StyledDivRecommendation = () => {
-    
+
     const streamRoomList = useSelector(state => state.getStreamRoomListReducer.streamRoomList)
-    const [imagePath, setImagePath] = useState(null);
+    const [selectedStreamRoom, setSelectedStreamRoom] = useState(streamRoomList && streamRoomList[0]);
+    const [selectedRoomID, setSelectedRoomID] = useState(streamRoomList && streamRoomList[0].RoomID)
     useEffect(() => {
-        if (streamRoomList) {
-            console.log('Recommendation streamRoomList: ', streamRoomList)
-            streamRoomList && setImagePath(streamRoomList[0].ImagePath)
+        if (streamRoomList && selectedRoomID) {
+            setSelectedStreamRoom(streamRoomList.find(streamRoom => streamRoom.RoomID === selectedRoomID))
         }
-    }, [streamRoomList]);
-    return (
-        <StyledDiv imagePath={imagePath} className="Recommendation_bg" >
-            <div className="Recommendation_LiveStream"></div>
-            <StyledButtonRecommendationTBList />
-        </StyledDiv>
-    )
+        if (streamRoomList && !selectedRoomID) {
+            setSelectedStreamRoom(streamRoomList[0])
+            setSelectedRoomID(streamRoomList[0].RoomID)
+        }
+    }, [streamRoomList, selectedRoomID]);
+    return streamRoomList
+        ? (
+            <StyledDiv className="Recommendation_bg" >
+                <StyledDivLiveStreamLink
+                    selectedStreamRoom={selectedStreamRoom} />
+                <StyledButtonRecommendationTBList
+                    streamRoomList={streamRoomList}
+                    selectedRoomID={selectedRoomID}
+                    setSelectedRoomID={setSelectedRoomID} />
+            </StyledDiv >
+        )
+        : null
 }
 
 const StyledDiv = styled.div`
-    .Recommendation_LiveStream{
-        position: relative;
-        width: 960px;
-        height: 538px;
-        background-image: url(${props => props.imagePath});
-        background-color: white;
-        display: inline-block;
-    }
     &:before{
         content:url(${process.env.PUBLIC_URL + '/assets/images/Android/TITLE_1.png'});
         position: absolute;

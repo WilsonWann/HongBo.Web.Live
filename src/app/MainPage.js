@@ -17,7 +17,7 @@ const MainPage = () => {
         dispatch({ type: GET_STREAM_ROOM_LIST_REQUEST })
     }, [dispatch])
     useEffect(() => {
-        console.log('topGameList: ', topGameList)
+        // console.log('topGameList: ', topGameList)
     }, [topGameList]);
     return (
         <StyledMainPage className="MainPage">

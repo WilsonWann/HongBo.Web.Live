@@ -3,10 +3,8 @@ import styled from 'styled-components';
 
 export const StyledPaging = (props) => {
     const [pageNow, setPageNow] = useState(1);
-    const totalGameList = props.totalGameList
-    const setShowList = props.setShowList
-    const pageSize = props.pageSize
-    const pageTotalCount = Math.ceil(totalGameList.length / pageSize)
+    const { streamRoomList, setShowList, pageSize } = props
+    const pageTotalCount = Math.ceil(streamRoomList.length / pageSize)
     const list = [];
     const setPage = (page) => {
         if (page === 0 || page > pageTotalCount) {
@@ -15,8 +13,8 @@ export const StyledPaging = (props) => {
         setPageNow(page);
         const startIndex = pageSize * (page - 1);
         const endIndex = pageSize * (page);
-        totalGameList
-            ? setShowList(totalGameList.slice(startIndex, endIndex))
+        streamRoomList
+            ? setShowList(streamRoomList.slice(startIndex, endIndex))
             : setShowList([])
     }
     for (let index = 1; index <= pageTotalCount; index++) {
@@ -47,8 +45,7 @@ const StyledButton = styled.button`
     cursor: pointer;
     border: none;
     background-color: transparent;
-    &.selected,
-    &:active{
+    &.selected{
         border-radius: 50%;
         box-shadow: 0px 2px 1px 0 rgba(255, 243, 230, 0.84), inset 0px 2px 4.9px 0.2px rgba(81, 55, 21, 0.75);
         color: #ffffff;

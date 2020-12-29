@@ -2,15 +2,12 @@ import { useEffect } from 'react';
 import styled from 'styled-components';
 
 export const StyledButtonRecommendationTB = (props) => {
-    const { imagePath, value, setIndex } = props;
-    useEffect(() => {
-        console.log('imagePath:',imagePath)
-        console.log('value:',value)
-        console.log('setIndex:',setIndex)
-        console.log('***************')
-    }, [imagePath, value, setIndex]);
+    const { imagePath, index, selectedRoomID, setSelectedRoomID} = props;
     return (
-        <StyledButton imagePath={imagePath} value={value} onClick={(e) => setIndex(+e.target.value)}></StyledButton>
+        <StyledButton
+            className={selectedRoomID === index ? 'selected' : ''}
+            imagePath={imagePath} value={index} 
+            onClick={(e) => setSelectedRoomID(+e.target.value)}></StyledButton>
     )
 }
 
@@ -27,6 +24,7 @@ export const StyledButton = styled.button`
     box-sizing: border-box;
     background-image: url(${props => props.imagePath});
     background-repeat: no-repeat;
+    background-size: cover;
     &:before{
         content:url(${process.env.PUBLIC_URL + '/assets/images/Android/thumbnail_182x92_h.png'});
         position: absolute;
