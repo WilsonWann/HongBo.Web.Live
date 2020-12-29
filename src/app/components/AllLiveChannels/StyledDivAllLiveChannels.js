@@ -14,7 +14,6 @@ export const StyledDivAllLiveChannels = () => {
         if (streamRoomList) {
             setShowList(streamRoomList.slice(0, 9))
         }
-        console.log('streamRoomList: ',streamRoomList)
     }, [streamRoomList]);
     return streamRoomList
         ? (

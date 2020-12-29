@@ -1,6 +1,17 @@
+import { useEffect } from 'react';
 import styled from 'styled-components';
+import GetGameName from './../../enum/Platform';
 
-export const StyledGame = styled.div`
+export const StyledGame = (props) => {
+    const { topGame } = props
+    const { GameTypeID, PlatformID, Count } = topGame
+    const gameName = GetGameName(PlatformID);
+    return (
+        <StyledDiv gameName={gameName}/>
+    )
+}
+
+export const StyledDiv = styled.div`
     position: relative;
     min-width: calc(950px / 4);
     height: 100%;

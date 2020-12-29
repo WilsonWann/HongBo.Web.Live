@@ -4,18 +4,19 @@ import { StyledGame } from './StyledGame';
 
 export const StyledGameList = (props) => {
     const { list, currIndex } = props;
-    // console.log('list: ',list)
-    return (
-        <StyleWrapperDiv>
-            <StyledDiv style={{ 'transform': `translateX(calc((-950px / 4 - 2px) * ${currIndex}))` }}>
-                {
-                    props.list.map((gameName, index) => {
-                        return <StyledGame key={index} gameName={gameName} />
-                    })
-                }
-            </StyledDiv>
-        </StyleWrapperDiv>
-    )
+    return list
+        ? (
+            <StyleWrapperDiv>
+                <StyledDiv style={{ 'transform': `translateX(calc((-950px / 4 - 2px) * ${currIndex}))` }}>
+                    {
+                        list.map((topGame, index) => {
+                            return <StyledGame key={index} topGame={topGame} />
+                        })
+                    }
+                </StyledDiv>
+            </StyleWrapperDiv>
+        )
+        : null
 }
 
 const StyleWrapperDiv = styled.div`

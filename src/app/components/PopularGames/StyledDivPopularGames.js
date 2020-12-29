@@ -7,27 +7,20 @@ export const StyledDivPopularGames = (props) => {
     const { topGameList } = props;
     const showNumber = 4;
     useEffect(() => {
-        // console.log('topGameList: ', topGameList)
+        console.log('topGameList: ', topGameList)
     }, [topGameList]);
-    // const topGameList = props.topGameList;
-    // console.log('StyledDivPopularGames topGameList: ',topGameList)
-    const list = [
-        'AG', 'FB', 'BG', 'MG',
-        'AG', 'FB', 'BG', 'MG',
-        'AG', 'FB'
-    ];
-    const [currIndex, setCurrIndex] = useState(0);
+    const [currIndex, setCurrIndex] = useState(0)
 
-    if (topGameList) {
-        return (
+
+    return topGameList
+        ? (
             <StyledDiv className="PopularGames_bg" >
-                <StyledDirButton showNumber={showNumber} currIndex={currIndex} setCurrIndex={setCurrIndex} list={list} dir="L"></StyledDirButton>
-                <StyledGameList currIndex={currIndex} list={list} />
-                <StyledDirButton showNumber={showNumber} currIndex={currIndex} setCurrIndex={setCurrIndex} list={list} dir="R"></StyledDirButton>
+                <StyledDirButton showNumber={showNumber} currIndex={currIndex} setCurrIndex={setCurrIndex} list={topGameList} dir="L"></StyledDirButton>
+                <StyledGameList currIndex={currIndex} list={topGameList} />
+                <StyledDirButton showNumber={showNumber} currIndex={currIndex} setCurrIndex={setCurrIndex} list={topGameList} dir="R"></StyledDirButton>
             </StyledDiv>
         )
-    } 
-    return null;
+        : null
 }
 
 

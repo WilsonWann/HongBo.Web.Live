@@ -16,9 +16,6 @@ export const StyledLiveBlock = (props) => {
         needPass
     } = streamRoom
     const gameName = GetGameName(PlatformID);
-    useEffect(() => {
-        console.log('gameName: ', gameName)
-    }, [gameName]);
     return (
         <StyledLi flag={gameName}>
             <StyledLink
