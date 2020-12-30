@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { LiveStreamLink } from './LiveStreamLink';
-import { RecommendationList } from './RecommendationList';
+import { LiveStreamLink } from './DivRecommendation/LiveStreamLink';
+import { RecommendationList } from './DivRecommendation/RecommendationList';
 
 export const DivRecommendation = () => {
 

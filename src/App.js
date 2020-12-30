@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import './App.css';
 import MainPage from './app/MainPage';
@@ -6,24 +6,23 @@ import MainPage from './app/MainPage';
 function App() {
   return (
     <div className="App">
-      <Router>
-        <div className="App">
+      <MainPage />
+      {/* <Router>
           <nav>
-            {/* <Link to="mainpage">MainPage</Link>
+            <Link to="mainpage">MainPage</Link>
             <Link to="recommendation">Recommendation</Link>
             <Link to="populargames">PopularGames</Link>
             <Link to="alllivechannels">AllLiveChannels</Link>
-            <Link to="logo">Logo</Link> */}
+            <Link to="logo">Logo</Link>
           </nav>
           <Switch>
-            <Route path="/" component={MainPage} />
-            {/* <Route path='/recommendation' component={Recommendation} />
-            <Route path='/populargames' component={PopularGames} />
-            <Route path='/alllivechannels' component={AllLiveChannels} />
-            <Route path='/logo' component={Logo} /> */}
+            <Route path="/" exact component={MainPage} />
+            <Route path='/recommendation' exact component={Recommendation} />
+            <Route path='/populargames' exact component={PopularGames} />
+            <Route path='/alllivechannels' exact component={AllLiveChannels} />
+            <Route path='/logo' exact component={Logo} />
           </Switch>
-        </div>
-      </Router>
+      </Router> */}
     </div>
   );
 }

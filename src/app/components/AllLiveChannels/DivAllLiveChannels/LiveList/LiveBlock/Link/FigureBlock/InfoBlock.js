@@ -1,15 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
-import { SubTitle } from './SubTitle';
-import { Title } from './Title'
+import { SubTitle } from './InfoBlock/SubTitle';
+import { Title } from '../../../../../../common/Title'
 
 export const InfoBlock = (props) => {
-    const { title, liveMaster, hot } = props;
+    const { title, liveMaster, hot, name, type } = props;
     return (
-        <StyledFigCation className="StyledInfoBlock">
+        <StyledFigCation className={name}>
             <Title title={title} />
-            <SubTitle liveMaster={liveMaster} hot={hot} />
-        </StyledFigCation>
+            <SubTitle
+                liveMaster={liveMaster}
+                hot={hot}
+                type={type}
+            />
+        </StyledFigCation >
     )
 }
 

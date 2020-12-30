@@ -1,14 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import { StyledHot } from '../AllLiveChannels/Hot'
-import { StyledLiveMaster } from '../AllLiveChannels/LiveMaster'
-import { StyledTitle } from '../AllLiveChannels/Title'
+import { StyledHot } from '../../../common/Hot'
+import { StyledLiveMaster } from '../../../common/LiveMaster'
+import { StyledTitle } from '../../../common/Title'
 
 export const InfoDiv = (props) => {
     const { title, liveMaster, hot } = props
-    console.log('title: ', title)
-    console.log('liveMaster: ', liveMaster)
-    console.log('hot: ', hot)
     return (
         <StyledDiv>
             <StyledTitleInfo>{title}</StyledTitleInfo>

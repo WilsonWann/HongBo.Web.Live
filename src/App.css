@@ -53,3 +53,8 @@
     transform: rotate(360deg);
   }
 }
+
+canvas{
+  z-index: -1 !important;
+  display:  none;
+}

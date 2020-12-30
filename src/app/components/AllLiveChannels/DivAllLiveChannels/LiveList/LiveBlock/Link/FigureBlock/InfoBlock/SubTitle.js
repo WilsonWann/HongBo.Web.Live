@@ -1,14 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Hot } from './Hot';
-import { LiveMaster } from './LiveMaster'
+import { Hot } from '../../../../../../../common/Hot';
+import { LiveMaster } from '../../../../../../../common/LiveMaster'
 
 export const SubTitle = (props) => {
-    const { liveMaster, hot } = props;
+    const { liveMaster, hot, type } = props;
     return (
         <StyledDiv>
-            <LiveMaster liveMaster={liveMaster} type="" />
-            <Hot hot={hot} type="" />
+            <LiveMaster liveMaster={liveMaster} type={type} />
+            <Hot hot={hot} type={type} />
         </StyledDiv>
     )
 }

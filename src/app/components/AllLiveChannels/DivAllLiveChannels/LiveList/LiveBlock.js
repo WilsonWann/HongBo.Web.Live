@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
-import { Link } from './Link';
-import GetGameName from '../../enum/Platform';
+import { Link } from './LiveBlock/Link';
+import GetGameName from '../../../../enum/Platform';
 
 export const LiveBlock = (props) => {
     const { streamRoom } = props
@@ -11,16 +11,30 @@ export const LiveBlock = (props) => {
         NickName,
         PlatformID,
         Popularity,
-        Title    } = streamRoom
+        Title } = streamRoom
+    const [type, setType] = useState('');
+    const hoverHandler = () => {
+        setType('_h')
+    }
+    const leaveHandler = () => {
+        setType('')
+    }
+    useEffect(() => {
 
+    }, [setType]);
+    
     const gameName = GetGameName(PlatformID);
     return (
-        <StyledLi flag={gameName}>
+        <StyledLi flag={gameName}
+            onMouseEnter={hoverHandler}
+            onMouseLeave={leaveHandler}
+        >
             <Link
                 image={ImagePath}
                 title={Title}
                 liveMaster={NickName ? NickName : Account}
-                hot={Popularity} />
+                hot={Popularity}
+                type={type} />
         </StyledLi>
     )
 }
@@ -62,6 +76,9 @@ const StyledLi = styled.li`
                 opacity: 1;
             }
             transform:scale(1.1);
+        }
+        .info-block-hover{
+            color: #eb4f2d;
         }
     }
 `

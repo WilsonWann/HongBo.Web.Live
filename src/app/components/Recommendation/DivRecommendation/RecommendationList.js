@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import { Recommendation } from './Recommendation';
+import { Recommendation } from './RecommendationList/Recommendation';
 
 export const RecommendationList = (props) => {
 

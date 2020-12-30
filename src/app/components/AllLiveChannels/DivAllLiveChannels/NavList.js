@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
-import { NavItem } from './NavItem';
+import { NavItem } from './NavList/NavItem';
 
 export const NavList = (props) => {
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { FigureBlock } from './FigureBlock'
+import { FigureBlock } from './Link/FigureBlock'
+
 
 export const Link = (props) => {
     return (
@@ -9,13 +10,14 @@ export const Link = (props) => {
                 image={props.image}
                 title={props.title}
                 liveMaster={props.liveMaster}
-                hot={props.hot} />
+                hot={props.hot}
+                type={props.type} />
         </StyledA>
     )
 }
-
-const StyledA = styled.a`
-    position: relative;
-    height: 100%;
-    width: 100%;
-`
+const LinkStyle = {
+    position: 'relative',
+    height: '100%',
+    width: '100%'
+}
+const StyledA = styled.a(LinkStyle)

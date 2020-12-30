@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
-import { DirButton } from './DirButton';
-import { GameList } from './GameList';
+import { DirButton } from './DivPopularGames/DirButton';
+import { GameList } from './DivPopularGames/GameList';
 
 export const DivPopularGames = (props) => {
     const { topGameList } = props;

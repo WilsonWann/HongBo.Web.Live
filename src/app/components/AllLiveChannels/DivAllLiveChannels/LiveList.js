@@ -1,15 +1,15 @@
 import React from 'react'
 import styled from 'styled-components';
-import { LiveBlock } from './LiveBlock';
+import { LiveBlock } from './LiveList/LiveBlock';
 
 export const LiveList = (props) => {
     const { showList } = props
     return showList
         ? (
-            <StyledUl >
+            <StyledUl>
                 {
-                    showList.map((streamRoom, blockNumber) =>
-                        <LiveBlock key={blockNumber} streamRoom={streamRoom} />)
+                    showList.map((streamRoom) =>
+                        <LiveBlock key={streamRoom.RoomID} streamRoom={streamRoom} />)
                 }
             </StyledUl>
         )

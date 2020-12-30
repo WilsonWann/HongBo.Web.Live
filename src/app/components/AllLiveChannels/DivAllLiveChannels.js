@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { LiveList } from './LiveList';
-import { NavList } from './NavList';
-import { Paging } from './Paging';
+import { LiveList } from './DivAllLiveChannels/LiveList';
+import { NavList } from './DivAllLiveChannels/NavList';
+import { Paging } from './DivAllLiveChannels/Paging';
 
 export const DivAllLiveChannels = () => {
     const streamRoomList = useSelector(state => state.getStreamRoomListReducer.streamRoomList)

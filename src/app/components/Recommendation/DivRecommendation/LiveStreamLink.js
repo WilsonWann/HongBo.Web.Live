@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { InfoDiv } from './InfoDiv';
+import { InfoDiv } from './LiveStreamLink/InfoDiv';
 
 export const LiveStreamLink = (props) => {
     const { selectedStreamRoom } = props
-    console.log('selectedStreamRoom: ', selectedStreamRoom)
     const [image, setImage] = useState(null);
     const [title, setTitle] = useState(null);
     const [liveMaster, setLiveMaster] = useState(null);
@@ -18,9 +17,6 @@ export const LiveStreamLink = (props) => {
                 : selectedStreamRoom.Account);
             setHot(selectedStreamRoom.Popularity);
         }
-        console.log('title: ',title)
-        console.log('liveMaster: ',liveMaster)
-        console.log('hot: ',hot)
     }, [selectedStreamRoom,title,liveMaster,hot]);
     return selectedStreamRoom
         ? (
