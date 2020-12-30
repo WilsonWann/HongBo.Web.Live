@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 
 export const DirButton = (props) => {
@@ -33,10 +34,10 @@ export const StyledButton = styled.button`
     background-position: center;
     background-color: transparent;
     cursor: pointer;
-    background-image: url(${props => process.env.PUBLIC_URL + '/assets/images/Android/2_arrow_' + props.dir + '.png'});
+    background-image: url(${props => '/assets/images/Android/2_arrow_' + props.dir + '.png'});
     &:hover,
     &:active{
-        background-image: url(${props => process.env.PUBLIC_URL + '/assets/images/Android/2_arrow_' + props.dir + '_h.png'});
+        background-image: url(${props => '/assets/images/Android/2_arrow_' + props.dir + '_h.png'});
     }
     &:focus{
         outline:none;

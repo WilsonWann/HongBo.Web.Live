@@ -7,7 +7,9 @@ import { headers } from '../headers';
 import * as APIUrl from '../apiList';
 import { call, put, takeEvery } from 'redux-saga/effects';
 
-const apiUrl = `http://dev-pc-hb.fastbet108.com
+// const apiUrl = `http://dev-pc-hb.fastbet108.com
+// ${APIUrl.getTopGame}`;
+const apiUrl = `
 ${APIUrl.getTopGame}`;
 
 function* GetTopGame() {

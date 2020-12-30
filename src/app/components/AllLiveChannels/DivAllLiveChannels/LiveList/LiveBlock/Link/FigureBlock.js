@@ -8,11 +8,11 @@ export const FigureBlock = (props) => {
         <StyledFigure>
             <ImageBlock image={props.image} name="image-block-hover" />
             <InfoBlock name="info-block-hover"
-                title={props.title} 
-                liveMaster={props.liveMaster} 
+                title={props.title}
+                liveMaster={props.liveMaster}
                 hot={props.hot}
                 type={props.type}
-                 />
+            />
         </StyledFigure>
     )
 }

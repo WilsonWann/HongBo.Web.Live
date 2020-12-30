@@ -11,6 +11,6 @@ export const Hot = (props) => {
 
 export const StyledHot = styled(StyledSubInfo)`
     &:before{
-        content: url(${props => process.env.PUBLIC_URL + `/assets/images/Android/hot${props.type}.svg`});
+        content: url(${props =>`/assets/images/Android/hot${props.type}.svg`});
     }
 `

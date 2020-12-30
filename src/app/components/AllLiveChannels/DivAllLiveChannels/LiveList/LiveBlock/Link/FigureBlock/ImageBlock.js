@@ -20,7 +20,7 @@ const StyledDiv = styled.div`
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        background-image: url(${process.env.PUBLIC_URL + '/assets/images/Android/play.png'});
+        background-image: url(${'/assets/images/Android/play.png'});
         background-position: center center;
         background-repeat: no-repeat;
         background-size: contain;

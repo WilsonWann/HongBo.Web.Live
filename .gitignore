@@ -27,3 +27,5 @@ package-lock.json
 
 src/assets/images/Android/*
 public/assets/images/Android/*
+
+/.yarn/**/*

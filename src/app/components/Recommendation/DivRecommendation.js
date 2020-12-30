@@ -34,7 +34,7 @@ export const DivRecommendation = () => {
 
 const StyledDiv = styled.div`
     &:before{
-        content:url(${process.env.PUBLIC_URL + '/assets/images/Android/TITLE_1.png'});
+        content:url(${'/assets/images/Android/TITLE_1.png'});
         position: absolute;
         width: 395px;
         height: 84px;
@@ -60,7 +60,7 @@ const StyledDiv = styled.div`
     width: 1174px;
     height: 540px;
     margin: 0 auto;
-    background-image: url(${process.env.PUBLIC_URL + '/assets/images/Android/1_BG.png'});
+    background-image: url(${'/assets/images/Android/1_BG.png'});
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;

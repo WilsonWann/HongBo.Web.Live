@@ -39,9 +39,9 @@ const MainPage = () => {
 const StyledMainPage = styled.div`
     position:relative;
     background-image: 
-        url(${process.env.PUBLIC_URL + '/assets/images/Android/BG_1.jpg'}),
-        url(${process.env.PUBLIC_URL + '/assets/images/Android/BG_2.jpg'}),
-        url(${process.env.PUBLIC_URL + '/assets/images/Android/BG_3.jpg'});
+        url(${'/assets/images/Android/BG_1.jpg'}),
+        url(${'/assets/images/Android/BG_2.jpg'}),
+        url(${'/assets/images/Android/BG_3.jpg'});
     width:100%;
     height: 100%;
     padding-top: 0.1px;

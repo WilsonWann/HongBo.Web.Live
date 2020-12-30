@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 
 export const Recommendation = (props) => {
@@ -24,7 +25,7 @@ export const StyledLi = styled.li`
     background-size: cover;
     cursor: pointer;
     &:before{
-        content:url(${process.env.PUBLIC_URL + '/assets/images/Android/thumbnail_182x92_h.png'});
+        content:url(${'/assets/images/Android/thumbnail_182x92_h.png'});
         position: absolute;
         width: 204px;
         height:104px;

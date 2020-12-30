@@ -39,7 +39,7 @@ const StyledWrapperDiv = styled.div`
 `
 const StyledDiv = styled.div`
     &:before{
-        content:url(${process.env.PUBLIC_URL + '/assets/images/Android/TITLE_3.png'});
+        content:url(${'/assets/images/Android/TITLE_3.png'});
         position: absolute;
         width: 395px;
         height: 84px;
@@ -54,7 +54,7 @@ const StyledDiv = styled.div`
     width: 1176px;
     height: 971px;
     margin: 0 auto;
-    background-image: url(${process.env.PUBLIC_URL + '/assets/images/Android/3_BG.png'});
+    background-image: url(${'/assets/images/Android/3_BG.png'});
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;

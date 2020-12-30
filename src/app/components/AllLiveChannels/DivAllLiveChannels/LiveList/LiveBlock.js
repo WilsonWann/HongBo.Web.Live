@@ -51,12 +51,12 @@ const StyledLi = styled.li`
         background-position: center center;
         background-repeat: no-repeat;
         background-size: contain;
-        background-image: url(${process.env.PUBLIC_URL + '/assets/images/Android/3_tag.png'});
+        background-image: url(${'/assets/images/Android/3_tag.png'});
         z-index:1;
     } 
     &:after{
         background-size: 80%;
-        background-image: url(${props => process.env.PUBLIC_URL + '/assets/images/Android/logo_' + props.flag + '.png'});
+        background-image: url(${props => '/assets/images/Android/logo_' + props.flag + '.png'});
     }
     position: relative;
     width: 33%;

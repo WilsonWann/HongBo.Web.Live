@@ -8,7 +8,9 @@ import * as APIUrl from '../apiList';
 import { call, put, takeEvery } from 'redux-saga/effects';
 import Pagination from '../../model/pagination';
 
-const apiUrl = `http://dev-pc-hb.fastbet108.com
+// const apiUrl = `http://dev-pc-hb.fastbet108.com
+// ${APIUrl.getStreamRoomList}`;
+const apiUrl = `
 ${APIUrl.getStreamRoomList}`;
 
 function* GetStreamRoomList() {

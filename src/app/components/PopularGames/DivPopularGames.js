@@ -23,7 +23,7 @@ export const DivPopularGames = (props) => {
 
 const StyledDiv = styled.div`
     &:before{
-        content:url(${process.env.PUBLIC_URL + '/assets/images/Android/TITLE_2.png'});
+        content:url(${'/assets/images/Android/TITLE_2.png'});
         position: absolute;
         width: 395px;
         height: 84px;
@@ -38,7 +38,7 @@ const StyledDiv = styled.div`
     width: 1153px;
     height: 142px;
     margin: 0 auto;
-    background-image: url(${process.env.PUBLIC_URL + '/assets/images/Android/2_BG.png'});
+    background-image: url(${'/assets/images/Android/2_BG.png'});
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;

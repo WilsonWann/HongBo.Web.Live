@@ -5,7 +5,7 @@ import {
 } from '../../actions/LiveGuestInfoAction.js';
 import { headers } from '../headers';
 import * as APIUrl from '../apiList';
-import { call, put, select, take, takeEvery } from 'redux-saga/effects';
+import { call, put, select, take } from 'redux-saga/effects';
 
 const apiUrl = `http://dev-pc-hb.fastbet108.com
 ${APIUrl.liveGuestInfo}`;
