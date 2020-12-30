@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledDirButton = (props) => {
+export const DirButton = (props) => {
 
     const { dir, list, currIndex, setCurrIndex, showNumber } = props;
     const setIndexByDir = (direction) => {

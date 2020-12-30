@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { StyledLiveList } from './StyledLiveList';
-import { StyledNavList } from './StyledNavList';
-import { StyledPaging } from './StyledPaging';
+import { LiveList } from './LiveList';
+import { NavList } from './NavList';
+import { Paging } from './Paging';
 
-export const StyledDivAllLiveChannels = () => {
+export const DivAllLiveChannels = () => {
     const streamRoomList = useSelector(state => state.getStreamRoomListReducer.streamRoomList)
     const [showList, setShowList] = useState(streamRoomList && streamRoomList.slice(0, 9));
     const pageSize = 9;
@@ -19,9 +19,9 @@ export const StyledDivAllLiveChannels = () => {
         ? (
             <StyledDiv className="AllLiveChannels_bg" >
                 <StyledWrapperDiv>
-                    <StyledNavList list={navList} />
-                    <StyledLiveList showList={showList} ></StyledLiveList>
-                    <StyledPaging streamRoomList={streamRoomList} setShowList={setShowList} pageSize={pageSize}></StyledPaging>
+                    <NavList list={navList} />
+                    <LiveList showList={showList} ></LiveList>
+                    <Paging streamRoomList={streamRoomList} setShowList={setShowList} pageSize={pageSize}></Paging>
                 </StyledWrapperDiv>
             </StyledDiv>
         )

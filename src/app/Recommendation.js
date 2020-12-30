@@ -1,11 +1,11 @@
 import React from 'react';
-import { StyledDivRecommendation } from './components/Recommendation/StyledDivRecommendation';
+import { DivRecommendation } from './components/Recommendation/DivRecommendation';
 
 
 const Recommendation = () => {
     return (
         <div>
-            <StyledDivRecommendation />
+            <DivRecommendation />
         </div>
     );
 }

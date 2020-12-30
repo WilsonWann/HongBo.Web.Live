@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components';
-import { StyledGame } from './StyledGame';
+import { Game } from './Game';
 
-export const StyledGameList = (props) => {
+export const GameList = (props) => {
     const { list, currIndex } = props;
     return list
         ? (
@@ -10,7 +10,7 @@ export const StyledGameList = (props) => {
                 <StyledDiv style={{ 'transform': `translateX(calc((-950px / 4 - 2px) * ${currIndex}))` }}>
                     {
                         list.map((topGame, index) => {
-                            return <StyledGame key={index} topGame={topGame} />
+                            return <Game key={index} topGame={topGame} />
                         })
                     }
                 </StyledDiv>

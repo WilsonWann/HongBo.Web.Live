@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components';
-import { StyledLink } from './StyledLink';
-import GetGameName from './../../enum/Platform';
+import { Link } from './Link';
+import GetGameName from '../../enum/Platform';
 
-export const StyledLiveBlock = (props) => {
+export const LiveBlock = (props) => {
     const { streamRoom } = props
     const {
         Account,
@@ -16,7 +16,7 @@ export const StyledLiveBlock = (props) => {
     const gameName = GetGameName(PlatformID);
     return (
         <StyledLi flag={gameName}>
-            <StyledLink
+            <Link
                 image={ImagePath}
                 title={Title}
                 liveMaster={NickName ? NickName : Account}

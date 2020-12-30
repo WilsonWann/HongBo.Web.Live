@@ -3,7 +3,7 @@ import Recommendation from './Recommendation';
 import PopularGames from './PopularGames';
 import AllLiveChannels from './AllLiveChannels';
 import Logo from './Logo';
-import { FloatingImage } from './components/StyledFloatingImage';
+import { FloatingBackgrounImage } from './components/FloatingBackgrounImage';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { GET_TOP_GAME_REQUEST } from './actions/GetTopGameAction.js';
@@ -21,8 +21,8 @@ const MainPage = () => {
     return (
         <StyledMainPage className="MainPage">
             <Logo className="MainPage_Logo" />
-            <FloatingImage className="MainPage_FloatingImage" type="A" />
-            <FloatingImage className="MainPage_FloatingImage" type="B" />
+            <FloatingBackgrounImage className="MainPage_FloatingImage" type="A" />
+            <FloatingBackgrounImage className="MainPage_FloatingImage" type="B" />
             <StyledRecommendation className="MainPage_Recommendation">
                 <Recommendation />
             </StyledRecommendation>

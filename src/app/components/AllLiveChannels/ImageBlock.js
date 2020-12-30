@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 
-export const StyledImageBlock = (props) => {
+export const ImageBlock = (props) => {
     return (
         <StyledPicture>
             <StyledDiv className={props.name} image={props.image} />

@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import { StyledFigureBlock } from './StyledFigure'
+import { FigureBlock } from './FigureBlock'
 
-export const StyledLink = (props) => {
+export const Link = (props) => {
     return (
         <StyledA>
-            <StyledFigureBlock
+            <FigureBlock
                 image={props.image}
                 title={props.title}
                 liveMaster={props.liveMaster}

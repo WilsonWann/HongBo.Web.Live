@@ -1,11 +1,11 @@
 import React from 'react'
-import { StyledDivPopularGames } from './components/PopularGames/StyledDivPopularGames';
+import { DivPopularGames } from './components/PopularGames/DivPopularGames';
 
 function PopularGames(props) {
 
     return (
         <div>
-            <StyledDivPopularGames topGameList={props.topGameList} />
+            <DivPopularGames topGameList={props.topGameList} />
         </div>
     )
 }

@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
-import { StyledDirButton } from './StyledDirButton';
-import { StyledGameList } from './StyledGameList';
+import { DirButton } from './DirButton';
+import { GameList } from './GameList';
 
-export const StyledDivPopularGames = (props) => {
+export const DivPopularGames = (props) => {
     const { topGameList } = props;
     const showNumber = 4;
     const [currIndex, setCurrIndex] = useState(0)
@@ -12,9 +12,9 @@ export const StyledDivPopularGames = (props) => {
     return topGameList
         ? (
             <StyledDiv className="PopularGames_bg" >
-                <StyledDirButton showNumber={showNumber} currIndex={currIndex} setCurrIndex={setCurrIndex} list={topGameList} dir="L"></StyledDirButton>
-                <StyledGameList currIndex={currIndex} list={topGameList} />
-                <StyledDirButton showNumber={showNumber} currIndex={currIndex} setCurrIndex={setCurrIndex} list={topGameList} dir="R"></StyledDirButton>
+                <DirButton showNumber={showNumber} currIndex={currIndex} setCurrIndex={setCurrIndex} list={topGameList} dir="L"></DirButton>
+                <GameList currIndex={currIndex} list={topGameList} />
+                <DirButton showNumber={showNumber} currIndex={currIndex} setCurrIndex={setCurrIndex} list={topGameList} dir="R"></DirButton>
             </StyledDiv>
         )
         : null

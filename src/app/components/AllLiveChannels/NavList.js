@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
-import { StyledNavItem } from './StyledNavItem';
+import { NavItem } from './NavItem';
 
-export const StyledNavList = (props) => {
+export const NavList = (props) => {
 
     const [currIndex, setCurrIndex] = useState(0);
 
@@ -10,8 +10,8 @@ export const StyledNavList = (props) => {
         <StyledUl>
             {
                 props.list.map((title, index) => {
-                    return <StyledNavItem setCurrIndex={setCurrIndex} currIndex={currIndex}
-                        index={index} key={index} value={title} ></StyledNavItem>
+                    return <NavItem setCurrIndex={setCurrIndex} currIndex={currIndex}
+                        index={index} key={index} value={title} ></NavItem>
                 })
             }
         </StyledUl>

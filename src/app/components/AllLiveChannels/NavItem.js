@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 
-export const StyledNavItem = (props) => {
+export const NavItem = (props) => {
     const { value, currIndex, index, setCurrIndex } = props;
 
     return (

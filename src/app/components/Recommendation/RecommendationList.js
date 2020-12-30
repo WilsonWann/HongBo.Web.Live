@@ -1,15 +1,15 @@
 import React from 'react'
 import styled from 'styled-components';
-import { StyledRecommendation } from './StyledRecommendation';
+import { Recommendation } from './Recommendation';
 
-export const StyledRecommendationList = (props) => {
+export const RecommendationList = (props) => {
 
     const { streamRoomList, selectedRoomID, setSelectedRoomID } = props
     return (
         <StyledUl className="Recommendation_thumbnail_list" >
             {
                 streamRoomList.map((streamRoom) => {
-                    return <StyledRecommendation
+                    return <Recommendation
                         imagePath={streamRoom.ImagePath}
                         key={streamRoom.RoomID}
                         index={+streamRoom.RoomID}

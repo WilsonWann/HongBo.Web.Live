@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledRecommendation = (props) => {
+export const Recommendation = (props) => {
     const { imagePath, index, selectedRoomID, setSelectedRoomID} = props;
     return (
         <StyledLi

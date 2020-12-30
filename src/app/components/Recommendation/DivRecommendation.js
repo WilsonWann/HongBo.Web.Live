@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { StyledDivLiveStreamLink } from './StyledDivLiveStreamLink';
-import { StyledRecommendationList } from './StyledRecommendationList';
+import { LiveStreamLink } from './LiveStreamLink';
+import { RecommendationList } from './RecommendationList';
 
-export const StyledDivRecommendation = () => {
+export const DivRecommendation = () => {
 
     const streamRoomList = useSelector(state => state.getStreamRoomListReducer.streamRoomList)
     const [selectedStreamRoom, setSelectedStreamRoom] = useState(streamRoomList && streamRoomList[0]);
@@ -21,9 +21,9 @@ export const StyledDivRecommendation = () => {
     return streamRoomList
         ? (
             <StyledDiv className="Recommendation_bg" >
-                <StyledDivLiveStreamLink
+                <LiveStreamLink
                     selectedStreamRoom={selectedStreamRoom} />
-                <StyledRecommendationList
+                <RecommendationList
                     streamRoomList={streamRoomList}
                     selectedRoomID={selectedRoomID}
                     setSelectedRoomID={setSelectedRoomID} />

@@ -1,10 +1,10 @@
 import React from 'react'
-import { StyledDivAllLiveChannels } from './components/AllLiveChannels/StyledDivAllLiveChannels';
+import { DivAllLiveChannels } from './components/AllLiveChannels/DivAllLiveChannels';
 
 const AllLiveChannels = (props) => {
     return (
         <div>
-            <StyledDivAllLiveChannels />
+            <DivAllLiveChannels />
         </div>
     )
 }

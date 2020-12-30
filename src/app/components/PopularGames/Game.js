@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import GetGameName from './../../enum/Platform';
+import GetGameName from '../../enum/Platform';
 
-export const StyledGame = (props) => {
+export const Game = (props) => {
     const { topGame } = props
     const { PlatformID } = topGame
     const gameName = GetGameName(PlatformID);

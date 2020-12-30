@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
 
-export const StyledPaging = (props) => {
+export const Paging = (props) => {
     const [pageNow, setPageNow] = useState(1);
     const { streamRoomList, setShowList, pageSize } = props
     const pageTotalCount = Math.ceil(streamRoomList.length / pageSize)
