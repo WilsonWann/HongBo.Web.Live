@@ -7,7 +7,6 @@ import { FloatingBackgrounImage } from './components/FloatingBackgrounImage';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { GET_TOP_GAME_REQUEST } from './actions/GetTopGameAction.js';
-import { GET_STREAM_ROOM_LIST_REQUEST } from './actions/GetStreamRoomListAction';
 import { LIVE_GUEST_INFO_REQUEST } from './actions/LiveGuestInfoAction';
 
 const MainPage = () => {
@@ -15,7 +14,6 @@ const MainPage = () => {
     const topGameList = useSelector(state => state.getTopGameReducer.topGameList)
     useEffect(() => {
         dispatch({ type: GET_TOP_GAME_REQUEST })
-        dispatch({ type: GET_STREAM_ROOM_LIST_REQUEST })
         dispatch({ type: LIVE_GUEST_INFO_REQUEST })
     }, [dispatch])
     return (

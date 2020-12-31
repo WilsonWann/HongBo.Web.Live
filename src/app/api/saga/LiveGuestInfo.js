@@ -5,11 +5,12 @@ import {
 } from '../../actions/LiveGuestInfoAction.js';
 import { headers } from '../headers';
 import * as APIUrl from '../apiList';
-import { call, put, select, take } from 'redux-saga/effects';
+import { call, put, select, takeEvery } from 'redux-saga/effects';
 
-const apiUrl = `http://dev-pc-hb.fastbet108.com
+// const apiUrl = `http://dev-pc-hb.fastbet108.com
+// ${APIUrl.liveGuestInfo}`;
+const apiUrl = `
 ${APIUrl.liveGuestInfo}`;
-
 function* liveGuestInfo() {
     try {
         const resp = yield call(fetch, apiUrl, { method: 'POST', heades: headers })
@@ -29,16 +30,7 @@ function* liveGuestInfo() {
     }
 }
 
-function* checkGuestToken() {
-    const guestToken = yield select(state => state.liveGuestInfoReducer.guestToken)
-    console.log('guestToken: ', guestToken)
-}
-
 function* mySaga() {
-    while(true){
-        yield take(checkGuestToken)
-        // yield takeEvery(LIVE_GUEST_INFO_REQUEST, liveGuestInfo)
-        yield take(LIVE_GUEST_INFO_REQUEST, liveGuestInfo)
-    }
+    yield takeEvery(LIVE_GUEST_INFO_REQUEST, liveGuestInfo)
 }
 export default mySaga;

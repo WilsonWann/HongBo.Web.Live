@@ -6,14 +6,15 @@ import { RecommendationList } from './DivRecommendation/RecommendationList';
 
 export const DivRecommendation = () => {
 
+    const isListExist = (list) => list && list.length
     const streamRoomList = useSelector(state => state.getStreamRoomListReducer.streamRoomList)
-    const [selectedStreamRoom, setSelectedStreamRoom] = useState(streamRoomList && streamRoomList[0]);
-    const [selectedRoomID, setSelectedRoomID] = useState(streamRoomList && streamRoomList[0].RoomID)
+    const [selectedStreamRoom, setSelectedStreamRoom] = useState(isListExist(streamRoomList) && streamRoomList[0]);
+    const [selectedRoomID, setSelectedRoomID] = useState(isListExist(streamRoomList) && streamRoomList[0].RoomID)
     useEffect(() => {
-        if (streamRoomList && selectedRoomID) {
+        if (isListExist(streamRoomList) && selectedRoomID) {
             setSelectedStreamRoom(streamRoomList.find(streamRoom => streamRoom.RoomID === selectedRoomID))
         }
-        if (streamRoomList && !selectedRoomID) {
+        if (isListExist(streamRoomList) && !selectedRoomID) {
             setSelectedStreamRoom(streamRoomList[0])
             setSelectedRoomID(streamRoomList[0].RoomID)
         }
