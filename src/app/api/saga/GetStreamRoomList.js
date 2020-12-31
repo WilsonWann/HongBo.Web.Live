@@ -16,11 +16,8 @@ ${APIUrl.getStreamRoomList}`;
 
 function* GetStreamRoomList() {
     try {
-        const liveGuestInfo = yield select(state => state.liveGuestInfoReducer)
-        const { errorMessage, ...guestInfo } = yield liveGuestInfo
-        console.log('guestInfo: ', yield guestInfo)
-
-        const body = { 'Authorization': guestInfo.guestToken, ...Pagination };
+        const guestToken  = yield select(state => state.liveGuestInfoReducer.guestToken)
+        const body = { 'Authorization': guestToken, ...Pagination };
         const resp = yield call(fetch, apiUrl, { method: 'POST', headers: headers, body: JSON.stringify(body) })
         if (!resp.ok) throw new Error('API error!')
         const result = yield resp.json()
