@@ -4,39 +4,55 @@ import styled from "styled-components";
 import { LiveList } from "./DivAllLiveChannels/LiveList";
 import { NavList } from "./DivAllLiveChannels/NavList";
 import { Paging } from "./DivAllLiveChannels/Paging";
+import GetGameTypeName from "./../../enum/GameType";
 
+const _DEFAULT_GAME_TYPE_ID_ = 0;
+const _PAGE_SIZE_ = 9;
+const _NAV_ID_LIST_ = [0, 99, 4, 5, 1, 2, 6, 90];
 export const DivAllLiveChannels = () => {
   const streamRoomList = useSelector(
     (state) => state.getStreamRoomListReducer.streamRoomList
   );
-  const [showList, setShowList] = useState(
-    streamRoomList && streamRoomList.slice(0, 9)
-  );
-  const pageSize = 9;
-  const navList = [
-    "全部",
-    "直播",
-    "体育",
-    "电竞",
-    "电子",
-    "真人",
-    "棋牌",
-    "高热门度",
-  ];
+
+  const [selectedGameTypeRoomList, setSelectedGameTypeRoomList] = useState([]);
+  const [showList, setShowList] = useState([]);
+  const [navList, setNavList] = useState([]);
+
+  const getGameType = (roomList) => {
+    return (gameTypeID) => {
+      gameTypeID = gameTypeID || _DEFAULT_GAME_TYPE_ID_;
+      const filteredGameTypeRoomList = gameTypeID
+        ? roomList.filter((room) => room.GameTypeID === gameTypeID)
+        : roomList;
+      setSelectedGameTypeRoomList(filteredGameTypeRoomList);
+    };
+  };
   useEffect(() => {
-    if (streamRoomList) {
-      setShowList(streamRoomList.slice(0, 9));
+    const navNameArr = [];
+    _NAV_ID_LIST_.map((navID) => {
+      navNameArr.push({
+        name: GetGameTypeName(navID),
+        id: navID,
+      });
+    });
+    setNavList(navNameArr);
+  }, [_NAV_ID_LIST_]);
+
+  useEffect(() => {
+    if (selectedGameTypeRoomList) {
+      setShowList(selectedGameTypeRoomList.slice(0, 9));
     }
-  }, [streamRoomList]);
+  }, [selectedGameTypeRoomList]);
+
   return streamRoomList ? (
     <StyledDiv className="AllLiveChannels_bg">
       <StyledWrapperDiv>
-        <NavList list={navList} />
+        <NavList navList={navList} getGameType={getGameType(streamRoomList)} />
         <LiveList showList={showList}></LiveList>
         <Paging
           streamRoomList={streamRoomList}
           setShowList={setShowList}
-          pageSize={pageSize}
+          pageSize={_PAGE_SIZE_}
         ></Paging>
       </StyledWrapperDiv>
     </StyledDiv>
