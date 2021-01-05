@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-export const FloatingBackgrounImage = () => {
-  return <StyledDiv />;
+export const FloatingBackgrounImage = (props) => {
+  return <StyledDiv type={props.type} />;
 };
 
 export const StyledDiv = styled.div`
