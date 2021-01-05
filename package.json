@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "env-cmd": "^10.1.0",
     "express": "^4.17.1",
     "http-proxy-middleware": "^1.0.6",
     "husky": "^4.3.6",
@@ -30,11 +31,14 @@
     ]
   },
   "scripts": {
-    "analyze":"source-map-explorer 'build/static/js/*.js'",
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build:dev": "env-cmd -f .env.development npm run build",
+    "build:rc": "env-cmd -f .env.rc npm run build",
+    "build:production": "env-cmd -f .env.production npm run build"
   },
   "eslintConfig": {
     "extends": [
@@ -62,5 +66,6 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
-  }  
+  },
+  "peerDependencies": {}
 }
