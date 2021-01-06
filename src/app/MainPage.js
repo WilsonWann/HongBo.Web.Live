@@ -8,6 +8,7 @@ import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { GET_TOP_GAME_REQUEST } from "./actions/GetTopGameAction.js";
 import { LIVE_GUEST_INFO_REQUEST } from "./actions/LiveGuestInfoAction";
+import { APP_GET_URL_ASYNC_REQUEST } from "./actions/AppGetUrlAsyncAction";
 
 const MainPage = () => {
   const dispatch = useDispatch();
@@ -17,6 +18,7 @@ const MainPage = () => {
   useEffect(() => {
     dispatch({ type: GET_TOP_GAME_REQUEST });
     dispatch({ type: LIVE_GUEST_INFO_REQUEST });
+    dispatch({ type: APP_GET_URL_ASYNC_REQUEST });
   }, [dispatch]);
   return (
     <StyledMainPage className="MainPage">
