@@ -1,8 +1,13 @@
-import React from 'react';
-import './App.css';
-import MainPage from './app/MainPage';
+import React from "react";
+import "./App.css";
+import MainPage from "./app/MainPage";
 
 function App() {
+  console.log(
+    "You are running this application in *" +
+      process.env.REACT_APP_ENV +
+      "* mode."
+  );
   return (
     <div className="App">
       <MainPage />
