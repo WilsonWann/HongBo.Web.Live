@@ -15,7 +15,7 @@ const configureStore = () => {
           applyMiddleware(sagaMiddleware, logger),
           window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__()
         )
-      : applyMiddleware(sagaMiddleware, logger)
+      : applyMiddleware(sagaMiddleware)
   );
   sagaMiddleware.run(rootSaga);
   return store;
