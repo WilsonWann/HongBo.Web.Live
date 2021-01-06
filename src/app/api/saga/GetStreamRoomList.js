@@ -8,7 +8,7 @@ import * as APIUrl from "../apiList";
 import { call, put, select, takeEvery } from "redux-saga/effects";
 import Pagination from "../../model/pagination";
 import { LIVE_GUEST_INFO_SUCCESS } from "../../actions/LiveGuestInfoAction";
-import { LOGGER_REQUEST } from "app/actions/LoggerAction";
+import { LOGGER_CATCHERROR, LOGGER_REQUEST } from "app/actions/LoggerAction";
 
 const apiUrl = `${APIUrl.getStreamRoomList}`;
 
@@ -23,9 +23,9 @@ function* GetStreamRoomList() {
       headers: headers,
       body: JSON.stringify(body),
     });
-    if (!resp.ok) throw new Error("API error!");
+    if (!resp.ok) throw new Error(resp.statusText);
     const result = yield resp.json();
-    if (!result.Success) throw new Error("Get data failed!");
+    if (!result.Success) throw new Error(`${result.Message}(${result.Code})`);
     const streamRoomList = yield result.Data;
     const liveStreamRoomList = streamRoomList.filter(
       (streamRoom) => streamRoom.GameTypeID === 0
@@ -43,7 +43,12 @@ function* GetStreamRoomList() {
       payload: streamRoomList,
     });
   } catch (error) {
-    yield put({ type: GET_STREAM_ROOM_LIST_FAIL, payload: error.message });
+    yield put({
+      type: LOGGER_CATCHERROR,
+      requestType: GET_STREAM_ROOM_LIST_FAIL,
+      apiUrl,
+      payload: error.message,
+    });
   }
 }
 function* checkGuestToken() {

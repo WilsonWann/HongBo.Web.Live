@@ -7,16 +7,16 @@ import { headers } from "../headers";
 import * as APIUrl from "../apiList";
 import { call, put, takeEvery } from "redux-saga/effects";
 import * as CryptoJS from "crypto-js";
-import { LOGGER_REQUEST } from "app/actions/LoggerAction";
+import { LOGGER_CATCHERROR, LOGGER_REQUEST } from "app/actions/LoggerAction";
 
 const apiUrl = `${APIUrl.appGetUrlAsync}`;
 
 function* AppGetUrlAsync() {
   try {
     const resp = yield call(fetch, apiUrl, { method: "POST", heades: headers });
-    if (!resp.ok) throw new Error("API error!");
+    if (!resp.ok) throw new Error(resp.statusText);
     const result = yield resp.json();
-    if (!result.Success) throw new Error("Get data failed!");
+    if (!result.Success) throw new Error(`${result.Message}(${result.Code})`);
     const Data = yield result.Data;
     let decryptResult = decrypt(Data);
     yield put({
@@ -26,7 +26,12 @@ function* AppGetUrlAsync() {
       payload: decryptResult,
     });
   } catch (error) {
-    yield put({ type: APP_GET_URL_ASYNC_FAIL, payload: error.message });
+    yield put({
+      type: LOGGER_CATCHERROR,
+      requestType: APP_GET_URL_ASYNC_FAIL,
+      apiUrl,
+      payload: error.message,
+    });
   }
 }
 
