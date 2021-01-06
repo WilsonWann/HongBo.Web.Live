@@ -7,11 +7,9 @@ import { headers } from "../headers";
 import * as APIUrl from "../apiList";
 import { call, put, takeEvery } from "redux-saga/effects";
 import * as CryptoJS from "crypto-js";
+import { LOGGER_REQUEST } from "app/actions/LoggerAction";
 
-// const apiUrl = `http://dev-pc-hb.fastbet108.com
-// ${APIUrl.getTopGame}`;
-const apiUrl = `
-${APIUrl.appGetUrlAsync}`;
+const apiUrl = `${APIUrl.appGetUrlAsync}`;
 
 function* AppGetUrlAsync() {
   try {
@@ -21,7 +19,12 @@ function* AppGetUrlAsync() {
     if (!result.Success) throw new Error("Get data failed!");
     const Data = yield result.Data;
     let decryptResult = decrypt(Data);
-    yield put({ type: APP_GET_URL_ASYNC_SUCCESS, payload: decryptResult });
+    yield put({
+      type: LOGGER_REQUEST,
+      requestType: APP_GET_URL_ASYNC_SUCCESS,
+      apiUrl,
+      payload: decryptResult,
+    });
   } catch (error) {
     yield put({ type: APP_GET_URL_ASYNC_FAIL, payload: error.message });
   }

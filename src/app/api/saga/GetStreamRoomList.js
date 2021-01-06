@@ -8,11 +8,9 @@ import * as APIUrl from "../apiList";
 import { call, put, select, takeEvery } from "redux-saga/effects";
 import Pagination from "../../model/pagination";
 import { LIVE_GUEST_INFO_SUCCESS } from "../../actions/LiveGuestInfoAction";
+import { LOGGER_REQUEST } from "app/actions/LoggerAction";
 
-// const apiUrl = `http://dev-pc-hb.fastbet108.com
-// ${APIUrl.getStreamRoomList}`;
-const apiUrl = `
-${APIUrl.getStreamRoomList}`;
+const apiUrl = `${APIUrl.getStreamRoomList}`;
 
 function* GetStreamRoomList() {
   try {
@@ -38,6 +36,12 @@ function* GetStreamRoomList() {
         (liveStreamRoom) => (liveStreamRoom.GameTypeID = 99)
       );
     yield put({ type: GET_STREAM_ROOM_LIST_SUCCESS, payload: streamRoomList });
+    yield put({
+      type: LOGGER_REQUEST,
+      requestType: GET_STREAM_ROOM_LIST_SUCCESS,
+      apiUrl,
+      payload: streamRoomList,
+    });
   } catch (error) {
     yield put({ type: GET_STREAM_ROOM_LIST_FAIL, payload: error.message });
   }

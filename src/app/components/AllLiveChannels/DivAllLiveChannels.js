@@ -19,8 +19,7 @@ export const DivAllLiveChannels = () => {
   const [navList, setNavList] = useState([]);
 
   const getGameType = (roomList) => {
-    return (gameTypeID) => {
-      gameTypeID = gameTypeID || _DEFAULT_GAME_TYPE_ID_;
+    return (gameTypeID = _DEFAULT_GAME_TYPE_ID_) => {
       const filteredGameTypeRoomList = gameTypeID
         ? roomList.filter((room) => room.GameTypeID === gameTypeID)
         : roomList;

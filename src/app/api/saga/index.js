@@ -3,6 +3,7 @@ import GetTopGame from "./GetTopGame";
 import GetStreamRoomList from "./GetStreamRoomList";
 import LiveGuestInfo from "./LiveGuestInfo";
 import AppGetUrlAsync from "./AppGetUrlAsync";
+import Logger from "./Logger";
 
 function* rootSaga() {
   yield all([
@@ -10,6 +11,7 @@ function* rootSaga() {
     GetStreamRoomList(),
     LiveGuestInfo(),
     AppGetUrlAsync(),
+    Logger(),
   ]);
 }
 

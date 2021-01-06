@@ -6,11 +6,9 @@ import {
 import { headers } from "../headers";
 import * as APIUrl from "../apiList";
 import { call, put, takeEvery } from "redux-saga/effects";
+import { LOGGER_REQUEST } from "app/actions/LoggerAction.js";
 
-// const apiUrl = `http://dev-pc-hb.fastbet108.com
-// ${APIUrl.liveGuestInfo}`;
-const apiUrl = `
-${APIUrl.liveGuestInfo}`;
+const apiUrl = `${APIUrl.liveGuestInfo}`;
 function* liveGuestInfo() {
   try {
     const resp = yield call(fetch, apiUrl, { method: "POST", heades: headers });
@@ -19,7 +17,9 @@ function* liveGuestInfo() {
     if (!result.Success) throw new Error("Get data failed!");
     const guestInfo = yield result.Data;
     yield put({
-      type: LIVE_GUEST_INFO_SUCCESS,
+      type: LOGGER_REQUEST,
+      requestType: LIVE_GUEST_INFO_SUCCESS,
+      apiUrl,
       payload: {
         guestAccount: guestInfo.Account,
         guestToken: guestInfo.Token,
