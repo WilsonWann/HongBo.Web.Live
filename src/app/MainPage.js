@@ -49,6 +49,7 @@ const StyledMainPage = styled.div`
   padding-top: 0.1px;
   background-repeat: no-repeat;
   background-position: top 0 center, top 970px center, top 1620px center;
+  overflow: hidden;
   .MainPage_FloatingImage {
     top: 0;
   }
