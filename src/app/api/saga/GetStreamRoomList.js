@@ -8,7 +8,7 @@ import * as APIUrl from "../apiList";
 import { call, put, select, takeEvery } from "redux-saga/effects";
 import Pagination from "../../model/pagination";
 import { LIVE_GUEST_INFO_SUCCESS } from "../../actions/LiveGuestInfoAction";
-import { LOGGER_CATCHERROR, LOGGER_REQUEST } from "app/actions/LoggerAction";
+import { LOGGER_CATCHERROR } from "app/actions/LoggerAction";
 
 const apiUrl = `${APIUrl.getStreamRoomList}`;
 
@@ -35,11 +35,8 @@ function* GetStreamRoomList() {
       liveStreamRoomList.forEach(
         (liveStreamRoom) => (liveStreamRoom.GameTypeID = 99)
       );
-    yield put({ type: GET_STREAM_ROOM_LIST_SUCCESS, payload: streamRoomList });
     yield put({
-      type: LOGGER_REQUEST,
-      requestType: GET_STREAM_ROOM_LIST_SUCCESS,
-      apiUrl,
+      type: GET_STREAM_ROOM_LIST_SUCCESS,
       payload: streamRoomList,
     });
   } catch (error) {

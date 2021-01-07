@@ -6,7 +6,7 @@ import {
 import { headers } from "../headers";
 import * as APIUrl from "../apiList";
 import { call, put, takeEvery } from "redux-saga/effects";
-import { LOGGER_CATCHERROR, LOGGER_REQUEST } from "app/actions/LoggerAction.js";
+import { LOGGER_CATCHERROR } from "app/actions/LoggerAction";
 
 const apiUrl = `${APIUrl.liveGuestInfo}`;
 function* liveGuestInfo() {
@@ -17,9 +17,7 @@ function* liveGuestInfo() {
     if (!result.Success) throw new Error(`${result.Message}(${result.Code})`);
     const guestInfo = yield result.Data;
     yield put({
-      type: LOGGER_REQUEST,
-      requestType: LIVE_GUEST_INFO_SUCCESS,
-      apiUrl,
+      type: LIVE_GUEST_INFO_SUCCESS,
       payload: {
         guestAccount: guestInfo.Account,
         guestToken: guestInfo.Token,

@@ -7,7 +7,7 @@ import { headers } from "../headers";
 import * as APIUrl from "../apiList";
 import { call, put, takeEvery } from "redux-saga/effects";
 import * as CryptoJS from "crypto-js";
-import { LOGGER_CATCHERROR, LOGGER_REQUEST } from "app/actions/LoggerAction";
+import { LOGGER_CATCHERROR } from "app/actions/LoggerAction";
 
 const apiUrl = `${APIUrl.appGetUrlAsync}`;
 
@@ -20,9 +20,7 @@ function* AppGetUrlAsync() {
     const Data = yield result.Data;
     let decryptResult = decrypt(Data);
     yield put({
-      type: LOGGER_REQUEST,
-      requestType: APP_GET_URL_ASYNC_SUCCESS,
-      apiUrl,
+      type: APP_GET_URL_ASYNC_SUCCESS,
       payload: decryptResult,
     });
   } catch (error) {

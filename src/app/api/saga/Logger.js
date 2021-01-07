@@ -3,6 +3,8 @@ import {
   LOGGER_SUCCESS,
   // LOGGER_FAIL,
   LOGGER_CATCHERROR,
+  LOGGER_RESET,
+  LOGGER_RESPONSE,
 } from "../../actions/LoggerAction";
 // import { headers } from "../headers";
 // import * as APIUrl from "../apiList";
@@ -30,6 +32,8 @@ function* Logger(action = null) {
       log,
     },
   });
+  loggerID > 100 ? yield put({ type: LOGGER_RESET }) : yield null;
+
   yield put({
     type: requestType,
     payload: payload,
@@ -49,6 +53,7 @@ function* errorLogger(action = null) {
 
 function* mySaga() {
   yield takeEvery(LOGGER_REQUEST, Logger);
+  yield takeEvery(LOGGER_RESPONSE, Logger);
   yield takeEvery(LOGGER_CATCHERROR, errorLogger);
 }
 export default mySaga;

@@ -6,7 +6,7 @@ import {
 import { headers } from "../headers";
 import * as APIUrl from "../apiList";
 import { call, put, takeEvery } from "redux-saga/effects";
-import { LOGGER_CATCHERROR, LOGGER_REQUEST } from "app/actions/LoggerAction";
+import { LOGGER_CATCHERROR } from "app/actions/LoggerAction";
 
 const apiUrl = `${APIUrl.getTopGame}`;
 
@@ -19,9 +19,7 @@ function* GetTopGame() {
     const topGameList = yield result.Data;
     topGameList.sort((g1, g2) => g2.Count - g1.Count);
     yield put({
-      type: LOGGER_REQUEST,
-      requestType: GET_TOP_GAME_SUCCESS,
-      apiUrl,
+      type: GET_TOP_GAME_SUCCESS,
       payload: topGameList,
     });
   } catch (error) {
