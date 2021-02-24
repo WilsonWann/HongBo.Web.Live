@@ -25,13 +25,9 @@ export const Paging = (props) => {
 
   return (
     <StyledDiv>
-      <StyledButton onClick={() => setPage(1)} value="|<">
-        {"|<"}
-      </StyledButton>
-      <StyledButton onClick={() => setPage(pageNow - 1)} value="<">
-        {"<"}
-      </StyledButton>
-      {list.length &&
+      <StyledButton onClick={() => setPage(1)}>{"|<"}</StyledButton>
+      <StyledButton onClick={() => setPage(pageNow - 1)}>{"<"}</StyledButton>
+      {list.length !== 0 &&
         list.map((item) => {
           return (
             <StyledButton
@@ -44,10 +40,8 @@ export const Paging = (props) => {
             </StyledButton>
           );
         })}
-      <StyledButton onClick={() => setPage(pageNow + 1)} value=">">
-        {">"}
-      </StyledButton>
-      <StyledButton onClick={() => setPage(pageTotalCount)} value=">|">
+      <StyledButton onClick={() => setPage(pageNow + 1)}>{">"} </StyledButton>
+      <StyledButton onClick={() => setPage(pageTotalCount)}>
         {">|"}
       </StyledButton>
     </StyledDiv>
