@@ -23,7 +23,7 @@ export const LiveStreamLink = (props) => {
   return (
     <StyledA>
       <InfoDiv title={title} liveMaster={liveMaster} hot={hot} />
-      <StyledDiv imagePath={image} />
+      {image && <StyledDiv imagePath={image} />}
     </StyledA>
   );
 };
