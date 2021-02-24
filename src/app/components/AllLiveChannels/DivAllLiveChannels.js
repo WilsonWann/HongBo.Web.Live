@@ -17,15 +17,16 @@ export const DivAllLiveChannels = () => {
   const [selectedGameTypeRoomList, setSelectedGameTypeRoomList] = useState([]);
   const [showList, setShowList] = useState([]);
   const [navList, setNavList] = useState([]);
+  const [currIndex, setCurrIndex] = useState(_DEFAULT_GAME_TYPE_ID_);
 
-  const getGameType = (roomList) => {
-    return (gameTypeID = _DEFAULT_GAME_TYPE_ID_) => {
-      const filteredGameTypeRoomList = gameTypeID
-        ? roomList.filter((room) => room.GameTypeID === gameTypeID)
-        : roomList;
-      setSelectedGameTypeRoomList(filteredGameTypeRoomList);
-    };
+  const filteredGameTypeRoomList = (gameTypeID) => {
+    const filteredRoomList =
+      streamRoomList && streamRoomList.length
+        ? streamRoomList.filter((room) => room.GameTypeID === gameTypeID)
+        : streamRoomList;
+    setSelectedGameTypeRoomList(filteredRoomList);
   };
+
   useEffect(() => {
     const navNameArr = [];
     _NAV_ID_LIST_.map((navID) => {
@@ -43,10 +44,18 @@ export const DivAllLiveChannels = () => {
     }
   }, [selectedGameTypeRoomList]);
 
-  return streamRoomList ? (
-    <StyledDiv className="AllLiveChannels_bg">
+  useEffect(() => {
+    filteredGameTypeRoomList(currIndex);
+  }, [currIndex]);
+
+  return (
+    <StyledDiv StyledDiv className="AllLiveChannels_bg">
       <StyledWrapperDiv>
-        <NavList navList={navList} getGameType={getGameType(streamRoomList)} />
+        <NavList
+          navList={navList}
+          currIndex={currIndex}
+          setCurrIndex={setCurrIndex}
+        />
         <LiveList showList={showList}></LiveList>
         <Paging
           streamRoomList={streamRoomList}
@@ -55,7 +64,7 @@ export const DivAllLiveChannels = () => {
         ></Paging>
       </StyledWrapperDiv>
     </StyledDiv>
-  ) : null;
+  );
 };
 
 const StyledWrapperDiv = styled.div`

@@ -28,7 +28,7 @@ export const DivRecommendation = () => {
       setSelectedRoomID(streamRoomList[0].RoomID);
     }
   }, [streamRoomList, selectedRoomID]);
-  return streamRoomList ? (
+  return (
     <StyledDiv className="Recommendation_bg">
       <LiveStreamLink selectedStreamRoom={selectedStreamRoom} />
       <RecommendationList
@@ -37,7 +37,7 @@ export const DivRecommendation = () => {
         setSelectedRoomID={setSelectedRoomID}
       />
     </StyledDiv>
-  ) : null;
+  );
 };
 
 const StyledDiv = styled.div`

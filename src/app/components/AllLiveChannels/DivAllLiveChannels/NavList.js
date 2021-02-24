@@ -1,28 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { NavItem } from "./NavList/NavItem";
 
 export const NavList = (props) => {
-  const { navList, getGameType } = props;
-  const [currIndex, setCurrIndex] = useState(navList[0].id);
-
-  useEffect(() => {
-    getGameType(currIndex);
-  }, [currIndex]);
+  const { navList, currIndex, setCurrIndex } = props;
 
   return (
     <StyledUl>
-      {navList.map((nav) => {
-        return (
-          <NavItem
-            setCurrIndex={setCurrIndex}
-            currIndex={currIndex}
-            index={nav.id}
-            key={nav.id}
-            value={nav.name}
-          ></NavItem>
-        );
-      })}
+      {navList.length &&
+        navList.map((nav) => {
+          return (
+            <NavItem
+              setCurrIndex={setCurrIndex}
+              currIndex={currIndex}
+              index={nav.id}
+              key={nav.id}
+              value={nav.name}
+            ></NavItem>
+          );
+        })}
     </StyledUl>
   );
 };

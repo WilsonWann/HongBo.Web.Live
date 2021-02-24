@@ -20,12 +20,12 @@ export const LiveStreamLink = (props) => {
       setHot(selectedStreamRoom.Popularity);
     }
   }, [selectedStreamRoom, title, liveMaster, hot]);
-  return selectedStreamRoom ? (
+  return (
     <StyledA>
       <InfoDiv title={title} liveMaster={liveMaster} hot={hot} />
       <StyledDiv imagePath={image} />
     </StyledA>
-  ) : null;
+  );
 };
 const StyledA = styled.a`
   position: relative;
@@ -38,7 +38,7 @@ const StyledDiv = styled.div`
   width: 100%;
   height: 100%;
   background-image: url(${(props) => process.env.PUBLIC_URL + props.imagePath});
-  background-color: #ffffff;
+  background-color: transparent;
   background-size: cover;
   background-repeat: no-repeat;
   display: inline-block;
