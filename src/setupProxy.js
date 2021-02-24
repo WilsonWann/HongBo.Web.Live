@@ -35,7 +35,7 @@ const createCDNProxy = (target) =>
     changeOrigin: true,
     logLevel: "debug",
     pathRewrite: {
-      "^/assets/images/Android": "/assets_newPC/images/Android",
+      "^/assets": "/assets_newPC",
     },
   });
 
